@@ -24,7 +24,7 @@ type Props = {
 
 export default function RootLayout({ children }: Readonly<Props>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className={cn("min-h-screen w-full antialiased", font.className)}>
         <Preloader />
         <Providers>

@@ -16,13 +16,13 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
   HTMLDivElement,
   HeaderProps
 >(function Header(
-  { className, ...rest }: HeaderProps,
+  { className, children, ...rest }: HeaderProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
-    <div ref={ref} className={cn("", className)} {...rest}>
-      Header
-    </div>
+    <header ref={ref} className={cn("px-8 py-2", className)} {...rest}>
+      {children}
+    </header>
   );
 });
 

@@ -16,13 +16,13 @@ export const Footer: ForwardRefExoticComponent<FooterProps> = forwardRef<
   HTMLDivElement,
   FooterProps
 >(function Footer(
-  { className, ...rest }: FooterProps,
+  { className, children, ...rest }: FooterProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
-    <div ref={ref} className={cn("", className)} {...rest}>
-      Footer
-    </div>
+    <footer ref={ref} className={cn("px-8 py-2", className)} {...rest}>
+      {children}
+    </footer>
   );
 });
 
