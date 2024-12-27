@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext, useMemo, ReactNode, useState } from "react";
 
 export interface ConstantsProviderProps {

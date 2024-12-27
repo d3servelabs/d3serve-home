@@ -5,6 +5,7 @@ import { ProgressProvider } from "./progress";
 import { ThemeProvider } from "./theme";
 import { ArtifactsProvider } from "@/providers/artifacts";
 import { Loading } from "@/components/Loading";
+import { AnalyticsProvider } from "@/providers/analytics";
 
 type Props = { children: ReactNode };
 
@@ -18,7 +19,9 @@ export const Providers = ({ children }: Readonly<Props>) => {
           disableTransitionOnChange
           storageKey="theme"
         >
-          <ArtifactsProvider>{children}</ArtifactsProvider>
+          <AnalyticsProvider>
+            <ArtifactsProvider>{children}</ArtifactsProvider>
+          </AnalyticsProvider>
         </ThemeProvider>
       </ProgressProvider>
     </Suspense>

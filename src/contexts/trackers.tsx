@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useMemo, ReactNode } from "react";
 import { Metric } from "web-vitals";
 import { event } from "nextjs-google-analytics";

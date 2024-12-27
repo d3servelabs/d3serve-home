@@ -1,3 +1,5 @@
+"use client";
+
 import { combineProviders } from "react-combine-providers";
 
 import { AmplitudesProvider } from "./amplitudes";
