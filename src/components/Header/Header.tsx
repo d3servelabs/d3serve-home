@@ -26,10 +26,13 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
   return (
     <header
       ref={ref}
-      className={cn("h-20 min-h-20 bg-background max-h-20 w-full", className)}
+      className={cn(
+        "h-20 min-h-20 relative z-10 bg-background max-h-20 w-full",
+        className,
+      )}
       {...rest}
     >
-      <div className="fixed backdrop-blur w-full px-8 py-4 flex h-20 min-h-20 max-h-20 items-center gap-3 justify-between">
+      <div className="fixed backdrop-blur z-10 w-full px-8 py-4 flex h-20 min-h-20 max-h-20 items-center gap-3 justify-between">
         <Logotype />
 
         <Social
