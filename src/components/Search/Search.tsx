@@ -22,7 +22,7 @@ export const Search: ForwardRefExoticComponent<SearchProps> = forwardRef<
 ) {
   return (
     <button ref={ref} className={cn("", className)} {...rest}>
-      <SvgSearch className="" />
+      <SvgSearch className="size-6" />
       <span className="sr-only">Search</span>
     </button>
   );

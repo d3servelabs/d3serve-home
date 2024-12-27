@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import { WEBSITE } from "@/constants";
 import { cn } from "@/utils/cn";
@@ -11,7 +11,10 @@ import { Footer } from "@/components/Footer";
 
 import "./globals.css";
 
-const font = Inter({ subsets: ["latin"] });
+const font = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
 
 export const metadata: Metadata = {
   title: WEBSITE.title,

@@ -26,22 +26,26 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
   return (
     <header
       ref={ref}
-      className={cn(
-        "px-8 py-2 flex items-center gap-3 justify-between",
-        className,
-      )}
+      className={cn("h-20 min-h-20 bg-background max-h-20 w-full", className)}
       {...rest}
     >
-      <Logotype />
+      <div className="fixed backdrop-blur w-full px-8 py-4 flex h-20 min-h-20 max-h-20 items-center gap-3 justify-between">
+        <Logotype />
 
-      <Social
-        before={<Search />}
-        discord={WEBSITE.socials.discord}
-        twitter={WEBSITE.socials.twitter}
-        github={WEBSITE.socials.github}
-        telegram={WEBSITE.socials.telegram}
-        linkedin={WEBSITE.socials.linkedin}
-      />
+        <Social
+          className="gap-1 flex items-center"
+          before={
+            <Search className="text-white/50 p-4 duration-150 transition-all hover:text-white hover:scale-[101%] active:scale-[99%]" />
+          }
+          discord={WEBSITE.socials.discord}
+          twitter={WEBSITE.socials.twitter}
+          email={WEBSITE.contacts.email}
+          item={{
+            className:
+              "text-white/50 p-4 duration-150 transition-all hover:text-white hover:scale-[101%] active:scale-[99%]",
+          }}
+        />
+      </div>
     </header>
   );
 });

@@ -3,10 +3,9 @@ import type { SVGProps } from "react";
 const SvgLogotypeLine = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
+    width={205}
+    height={32}
     fill="none"
-    viewBox="0 0 205 32"
     {...props}
   >
     <path

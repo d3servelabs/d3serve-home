@@ -24,12 +24,12 @@ export const Footer: ForwardRefExoticComponent<FooterProps> = forwardRef<
     <footer
       ref={ref}
       className={cn(
-        "px-8 w-full justify-center items-center text-center py-2",
+        "px-8 w-full justify-center items-center text-center py-8",
         className,
       )}
       {...rest}
     >
-      <Copyright />
+      <Copyright className="text-lg text-white/60" />
     </footer>
   );
 });

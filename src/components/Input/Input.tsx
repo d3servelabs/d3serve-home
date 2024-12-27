@@ -19,13 +19,7 @@ export const Input: ForwardRefExoticComponent<InputProps> = forwardRef<
   { className, ...rest }: InputProps,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
-  return (
-    <input
-      ref={ref}
-      className={cn("rounded-full bg-white/10", className)}
-      {...rest}
-    />
-  );
+  return <input ref={ref} className={cn("", className)} {...rest} />;
 });
 
 Input.displayName = "Input";

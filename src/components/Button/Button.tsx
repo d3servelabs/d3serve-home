@@ -13,21 +13,24 @@ import { Loader2Icon } from "lucide-react";
 import type { UrlObject } from "url";
 
 const variants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all",
+  "tracking-widest inline-flex items-center leading-none text-center justify-center rounded-full duration-150 transition-all disabled:opacity-90 disabled:cursor-not-allowed hover:scale-[101%] active:scale-[99%]",
   {
     variants: {
       variant: {
-        primary: "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500",
+        primary:
+          "bg-white text-black border border-white hover:bg-black hover:text-white",
         secondary:
-          "bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-200",
+          "bg-white/10 text-white border border-transparent hover:bg-white hover:text-black hover:border-white",
         tertiary:
-          "bg-transparent text-blue-500 hover:underline focus:ring-blue-500",
-        link: "text-blue-500 underline hover:text-blue-600 focus:ring-blue-500",
+          "border-white text-white border hover:bg-white hover:text-black",
+        quaternary:
+          "bg-white/5 shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)] border border-white/50 hover:shadow-[inset_0px_0px_25px_0px_rgba(255,255,255,0.75)]",
+        link: "hover:underline",
       },
       size: {
-        sm: "px-2 py-1 text-sm",
-        md: "px-4 py-2 text-base",
-        lg: "px-6 py-3 text-lg",
+        sm: "py-2 px-4 h-10",
+        md: "py-4 px-8 text-xl h-12",
+        lg: "py-6 px-8 text-xl h-16",
       },
       disabled: {
         true: "opacity-90 cursor-not-allowed",
@@ -67,7 +70,7 @@ export const Button = forwardRef<
     ref,
   ) => {
     const classes = useMemo(
-      () => cn(variants({ variant, size, disabled }), className),
+      () => cn("", variants({ variant, size, disabled }), className),
       [className, disabled, size, variant],
     );
 
@@ -95,7 +98,14 @@ export const Button = forwardRef<
         aria-disabled={!!(disabled || loading)}
         {...rest}
       >
-        <span className={cn(loading && "invisible")}>{children}</span>
+        <span
+          className={cn(
+            loading && "invisible",
+            "flex w-full items-center text-center justify-center leading-none",
+          )}
+        >
+          {children}
+        </span>
         {loading && <Loader2Icon className="absolute animate-spin" />}
       </button>
     );

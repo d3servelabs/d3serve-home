@@ -3,10 +3,9 @@ import type { SVGProps } from "react";
 const SvgCompany8 = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
+    width={180}
+    height={48}
     fill="none"
-    viewBox="0 0 180 48"
     {...props}
   >
     <g fill="#EDFCF7" fillOpacity={0.62} clipPath="url(#company8_svg__a)">

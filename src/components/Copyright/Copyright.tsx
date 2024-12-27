@@ -20,7 +20,7 @@ export const Copyright: ForwardRefExoticComponent<CopyrightProps> = forwardRef<
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
-    <div ref={ref} className={cn("text-lg", className)} {...rest}>
+    <div ref={ref} className={cn("", className)} {...rest}>
       &copy; D3SERVE LABS, Inc.
     </div>
   );

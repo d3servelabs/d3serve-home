@@ -25,6 +25,7 @@ export type SocialProps = HTMLAttributes<HTMLDivElement> & {
   phone?: string;
   before?: ReactNode;
   after?: ReactNode;
+  item?: HTMLAttributes<HTMLElement>;
   ref?: ForwardedRef<HTMLDivElement>;
 };
 
@@ -42,56 +43,88 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
     phone,
     before,
     after,
+    item,
     className,
     ...rest
   }: SocialProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
-    <div
-      ref={ref}
-      className={cn("flex gap-1 items-center", className)}
-      {...rest}
-    >
+    <div ref={ref} className={cn("flex items-center", className)} {...rest}>
       {before}
       {discord && (
-        <Link href={discord} target="_blank" className="">
+        <Link
+          {...item}
+          href={discord}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <SvgDiscord className="size-6" />
           <span className="sr-only">Discord</span>
         </Link>
       )}
       {twitter && (
-        <Link href={twitter} target="_blank" className="">
+        <Link
+          {...item}
+          href={twitter}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <SvgTwitter className="size-6" />
           <span className="sr-only">Twitter</span>
         </Link>
       )}
       {github && (
-        <Link href={github} target="_blank" className="">
+        <Link
+          {...item}
+          href={github}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <SvgGithub className="size-6" />
           <span className="sr-only">Github</span>
         </Link>
       )}
       {telegram && (
-        <Link href={telegram} target="_blank" className="">
+        <Link
+          {...item}
+          href={telegram}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <SvgTelegram className="size-6" />
           <span className="sr-only">Telegram</span>
         </Link>
       )}
       {linkedin && (
-        <Link href={linkedin} target="_blank" className="">
+        <Link
+          {...item}
+          href={linkedin}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <SvgLinkedin className="size-6" />
           <span className="sr-only">Linked In</span>
         </Link>
       )}
       {email && (
-        <Link href={`mailto:${email}`} target="_blank" className="">
+        <Link
+          {...item}
+          href={`mailto:${email}`}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <SvgMail className="size-6" />
           <span className="sr-only">Email: {email}</span>
         </Link>
       )}
       {phone && (
-        <Link href={`tel:${email}`} target="_blank" className="">
+        <Link
+          {...item}
+          href={`tel:${email}`}
+          target="_blank"
+          className={cn("", item?.className)}
+        >
           <PhoneIcon className="size-6" />
           <span className="sr-only">Phone: {phone}</span>
         </Link>

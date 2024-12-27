@@ -30,4 +30,4 @@ export const WEBSITE = {
 };
 
 export const HAS_CURSOR = false;
-export const HAS_TOPPER = true;
+export const HAS_TOPPER = false;
