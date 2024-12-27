@@ -46,14 +46,14 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         onSubmit={handleSubmit(onSubmit)}
         ref={ref}
         className={cn(
-          "flex w-full p-2 h-14 bg-white/10 rounded-full",
+          "flex w-full p-2 gap-2 h-14 bg-white/10 rounded-full",
           className,
         )}
         {...rest}
       >
         <Input
           placeholder="Enter your email"
-          className="placeholder:text-white/30 tracking-widest w-full h-full bg-transparent outline-0 rounded-full px-8"
+          className="placeholder:text-white/30 autofill:!bg-transparent tracking-widest w-full h-full bg-transparent outline-0 rounded-full px-8"
           {...register("email")}
         />
         <button
