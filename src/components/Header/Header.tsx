@@ -32,13 +32,13 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
       )}
       {...rest}
     >
-      <div className="fixed backdrop-blur z-10 w-full px-8 py-4 flex h-20 min-h-20 max-h-20 items-center gap-3 justify-between">
+      <div className="fixed z-10 flex h-20 max-h-20 min-h-20 w-full items-center justify-between gap-3 px-8 py-4 backdrop-blur">
         <Logotype />
 
         <Social
-          className="gap-1 flex items-center"
+          className="flex items-center gap-1"
           before={
-            <Search className="text-white/50 p-4 duration-150 transition-all hover:text-white hover:scale-[101%] active:scale-[99%]" />
+            <Search className="p-4 text-white/50 transition-all duration-150 hover:scale-[101%] hover:text-white active:scale-[99%]" />
           }
           discord={WEBSITE.socials.discord}
           twitter={WEBSITE.socials.twitter}

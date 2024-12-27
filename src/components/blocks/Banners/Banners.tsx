@@ -33,13 +33,13 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
       )}
       {...rest}
     >
-      <div className="w-full flex items-center justify-center">
+      <div className="flex w-full items-center justify-center">
         <Button variant="quaternary" size="sm">
-          <SvgStars className="size-5 inline-flex mr-2" />
+          <SvgStars className="mr-2 inline-flex size-5" />
           ICANN Accreditation
         </Button>
       </div>
-      <div className="w-full mt-8 flex items-center text-center justify-center">
+      <div className="mt-8 flex w-full items-center justify-center text-center">
         <TextGradient
           duration={5000}
           colors={[
@@ -54,11 +54,11 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           <Heading level={1}>A Pioneer of Digital Trust</Heading>
         </TextGradient>
       </div>
-      <div className="w-full text-white/70 text-2xl flex items-center text-center justify-center">
+      <div className="flex w-full items-center justify-center text-center text-2xl text-white/70">
         Building digital trust with blockchain powered software and services.
         Maker of Namefi.io and more
       </div>
-      <div className="w-full gap-8 mt-16 flex items-center text-center justify-center">
+      <div className="mt-16 flex w-full items-center justify-center gap-8 text-center">
         <Button
           href="https://hackmd.io/@d3servelabs/vision"
           target="_blank"
@@ -67,7 +67,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           className="bg-white/70"
         >
           Read manifesto
-          <SvgArrowUpRight className="size-6 inline-flex ml-2" />
+          <SvgArrowUpRight className="ml-2 inline-flex size-6" />
         </Button>
         <Button variant="tertiary" size="lg" className="">
           Partner with us

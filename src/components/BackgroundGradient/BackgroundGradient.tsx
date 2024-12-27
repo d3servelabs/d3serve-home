@@ -21,7 +21,7 @@ export const BackgroundGradient: ForwardRefExoticComponent<BackgroundGradientPro
         <div ref={ref} className={cn("relative", className)} {...rest}>
           <div className="absolute inset-0 bg-black/20">
             <div
-              className="absolute inset-0 pointer-events-none"
+              className="pointer-events-none absolute inset-0"
               style={{
                 opacity: 1,
                 background: `url("/noise.png") lightgray 0% 0% / 100px 100px repeat`,

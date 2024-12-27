@@ -53,13 +53,13 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
       >
         <Input
           placeholder="Enter your email"
-          className="placeholder:text-white/30 autofill:!bg-transparent tracking-widest w-full h-full bg-transparent outline-0 rounded-full px-8"
+          className="size-full rounded-full bg-transparent px-8 tracking-widest outline-0 placeholder:text-white/30 autofill:!bg-transparent"
           {...register("email")}
         />
         <button
           disabled={!formState.isValid}
           type="submit"
-          className="px-8 h-full text-lg duration-150 transition-all disabled:opacity-90 disabled:cursor-not-allowed hover:scale-[101%] active:scale-[99%] text-black bg-white/65 rounded-full flex text-nowrap whitespace-nowrap hover:bg-white justify-center items-center text-center disabled:hover:scale-100 disabled:active:scale-100 disabled:hover:bg-white/65"
+          className="flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full bg-white/65 px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] hover:bg-white active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:hover:bg-white/65 disabled:active:scale-100"
         >
           <span className="mr-2">Get Started</span>
           {formState.isSubmitting ? (

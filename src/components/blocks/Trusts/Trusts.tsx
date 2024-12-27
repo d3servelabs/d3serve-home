@@ -53,15 +53,15 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
         </Button>
       </div>
 
-      <div className="flex items-center w-full gap-8">
-        <div className="flex flex-col w-full gap-8 p-8">
+      <div className="flex w-full items-center gap-8">
+        <div className="flex w-full flex-col gap-8 p-8">
           <Image src={Icon} alt="Why digital trust" width={1080} height={764} />
         </div>
-        <div className="flex flex-col w-full gap-8 p-8">
+        <div className="flex w-full flex-col gap-8 p-8">
           <Heading className="text-3xl font-bold" level={3}>
             Loss-less-ness
           </Heading>
-          <div className="w-full text-white/70 text-xl flex">
+          <div className="flex w-full text-xl text-white/70">
             One of the most transformative aspects of digitizing trust is its
             ability to propagate and execute with loss-less precision. Just as
             digitized information can be transmitted without degradation,
@@ -79,10 +79,10 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
             <Link
               href="https://example.com"
               target="_blank"
-              className="text-white/40 text-sm duration-150 transition-all group hover:scale-105 active:scale-[99%]"
+              className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
             >
               Read more
-              <SvgArrowRight className="size-3 ml-2 inline-flex duration-150 transition-all group-hover:translate-x-1" />
+              <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

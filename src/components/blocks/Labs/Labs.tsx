@@ -34,14 +34,14 @@ export const Labs: ForwardRefExoticComponent<LabsProps> = forwardRef<
       <Heading className="text-6xl font-bold" level={2}>
         D3Serve Labs + ICANN
       </Heading>
-      <div className="w-full text-white/70 text-2xl flex items-center text-center justify-center">
+      <div className="flex w-full items-center justify-center text-center text-2xl text-white/70">
         D3Serve Labs is now an ICANN-accredited registrar providing enhanced
         legitimacy and trust, access to a wider range of domain names and better
         pricing, increased security and protection, and easy transfer of domain
         names to and from Namefi.
       </div>
 
-      <div className="w-full h-[400px] mt-16 overflow-hidden flex justify-center items-start relative">
+      <div className="relative mt-16 flex h-[400px] w-full items-start justify-center overflow-hidden">
         <Image
           width={1448}
           height={1432}

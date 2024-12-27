@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 import { WEBSITE } from "@/constants";
 import { cn } from "@/utils/cn";
 import { Preloader } from "@/components/Preloader";
@@ -29,14 +30,17 @@ export default function RootLayout({ children }: Readonly<Props>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={cn("min-h-screen w-full antialiased", font.className)}>
-        <Preloader />
-        <Providers>
-          <Contexts>
-            <Header />
-            {children}
-            <Footer />
-          </Contexts>
-        </Providers>
+        <Contexts>
+          <GoogleAnalytics trackPageViews />
+          <Preloader />
+          <Providers>
+            <Contexts>
+              <Header />
+              {children}
+              <Footer />
+            </Contexts>
+          </Providers>
+        </Contexts>
       </body>
     </html>
   );

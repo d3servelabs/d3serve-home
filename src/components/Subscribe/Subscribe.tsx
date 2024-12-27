@@ -27,10 +27,10 @@ export const Subscribe: ForwardRefExoticComponent<SubscribeProps> = forwardRef<
       className={cn("flex flex-col gap-8 w-full", className)}
       {...rest}
     >
-      <Heading level={3} className="text-white text-4xl font-bold">
+      <Heading level={3} className="text-4xl font-bold text-white">
         Subscribe to receive updates
       </Heading>
-      <div className="w-full text-white/70 text-2xl flex">
+      <div className="flex w-full text-2xl text-white/70">
         Stay ahead with the latest trends, onchain domains, and exclusive
         product news.
       </div>

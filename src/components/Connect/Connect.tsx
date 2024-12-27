@@ -28,15 +28,15 @@ export const Connect: ForwardRefExoticComponent<ConnectProps> = forwardRef<
       className={cn("flex flex-col gap-8 w-full", className)}
       {...rest}
     >
-      <Heading level={3} className="text-white text-4xl font-bold">
+      <Heading level={3} className="text-4xl font-bold text-white">
         Stay in touch
       </Heading>
-      <div className="w-full text-white/70 text-2xl flex">
+      <div className="flex w-full text-2xl text-white/70">
         Follow us on social media and stay updated with the latest news,
         features, and insights from the Namefi ecosystem.
       </div>
       <Social
-        className="gap-4 flex items-center"
+        className="flex items-center gap-4"
         discord={WEBSITE.socials.discord}
         twitter={WEBSITE.socials.twitter}
         github={WEBSITE.socials.github}

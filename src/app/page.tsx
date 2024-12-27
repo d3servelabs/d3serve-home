@@ -9,34 +9,34 @@ import { Subscribe } from "@/components/Subscribe";
 
 export default function Page() {
   return (
-    <div className="flex flex-col w-full">
-      <div className="px-8 py-20 min-h-screen w-full flex justify-center items-center -mt-20">
+    <div className="flex w-full flex-col">
+      <div className="-mt-20 flex min-h-screen w-full items-center justify-center px-8 py-20">
         <Container>
           <Banners />
         </Container>
       </div>
-      <div className="px-8 py-40 bg-[#0e0e0e] w-full flex justify-center items-center">
+      <div className="flex w-full items-center justify-center bg-[#0e0e0e] px-8 py-40">
         <Container>
           <Products />
         </Container>
       </div>
-      <div className="px-8 py-40 bg-[#090909] w-full flex">
+      <div className="flex w-full bg-[#090909] px-8 py-40">
         <Container>
           <Trusts />
         </Container>
       </div>
-      <div className="px-8 pt-40 bg-[#141414] w-full flex">
+      <div className="flex w-full bg-[#141414] px-8 pt-40">
         <Container>
           <Labs />
         </Container>
       </div>
-      <div className="px-8 py-40 bg-[#090909] w-full flex">
+      <div className="flex w-full bg-[#090909] px-8 py-40">
         <Container>
           <Companies />
         </Container>
       </div>
-      <div className="px-8 py-40 bg-[#0e0e0e] w-full flex">
-        <Container className="w-full flex gap-8">
+      <div className="flex w-full bg-[#0e0e0e] px-8 py-40">
+        <Container className="flex w-full gap-8">
           <Connect />
           <Subscribe />
         </Container>

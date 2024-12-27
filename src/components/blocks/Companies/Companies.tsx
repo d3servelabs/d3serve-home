@@ -34,7 +34,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
       <Heading className="text-6xl font-bold" level={2}>
         Backed by the best
       </Heading>
-      <div className="w-full mt-12 text-white/70 text-2xl flex items-center text-center justify-center">
+      <div className="mt-12 flex w-full items-center justify-center text-center text-2xl text-white/70">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
       <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
           Partners
         </Button>
       </div>
-      <div className="mt-16 w-full grid-cols-4 grid gap-6">
+      <div className="mt-16 grid w-full grid-cols-4 gap-6">
         {Object.entries(companies).map(([name, Icon]) => (
           <div
             className="flex w-full items-center justify-center p-6"

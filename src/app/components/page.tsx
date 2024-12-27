@@ -32,7 +32,7 @@ export default function Page() {
   );
 
   return (
-    <div className="flex flex-col p-8 w-full">
+    <div className="flex w-full flex-col p-8">
       <Container className="space-x-8 space-y-8">{buttons}</Container>
     </div>
   );
