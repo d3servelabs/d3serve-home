@@ -1,8 +1,9 @@
 # d3serve-home
 
 [WEBSITE](https://d3serve-home.vercel.app/) |
-[REPOSITORY](https://github.com/d3servelabs/d3serve-home/)
-[FIGMA](<https://www.figma.com/design/Otm6uc726w4rl3G4u3bVf4/Namefi-Home-(https%3A%2F%2Fnamefi.io)?node-id=247-12427&m=dev>)
+[REPOSITORY](https://github.com/d3servelabs/d3serve-home/) |
+[FIGMA](<https://www.figma.com/design/Otm6uc726w4rl3G4u3bVf4/Namefi-Home-(https%3A%2F%2Fnamefi.io)?node-id=247-12427&m=dev>) |
+[VERCEL](https://vercel.com/d3servelabs/d3serve-home)
 
 A brief description of your project goes here.
 
