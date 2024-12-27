@@ -5,7 +5,7 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 
 type Props = { children: ReactNode };
 
-export const AnalyticsProvider = ({ children, ...rest }: Readonly<Props>) => {
+export const AnalyticsProvider = ({ children }: Readonly<Props>) => {
   return (
     <>
       <GoogleAnalytics trackPageViews />
