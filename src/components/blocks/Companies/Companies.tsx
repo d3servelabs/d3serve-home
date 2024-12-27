@@ -48,7 +48,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
           Grantors
         </Button>
         <Button size="sm" variant="secondary" className="text-lg">
-          All
+          Partners
         </Button>
       </div>
       <div className="mt-16 w-full grid-cols-4 grid gap-6">

@@ -13,16 +13,16 @@ import { Loader2Icon } from "lucide-react";
 import type { UrlObject } from "url";
 
 const variants = cva(
-  "tracking-widest inline-flex items-center leading-none text-center justify-center rounded-full duration-150 transition-all disabled:opacity-90 disabled:cursor-not-allowed hover:scale-[101%] active:scale-[99%]",
+  "tracking-widest inline-flex items-center leading-none text-center justify-center rounded-full duration-150 transition-all disabled:opacity-90 disabled:cursor-not-allowed hover:scale-[101%] active:scale-[99%] disabled:hover:scale-100 disabled:active:scale-100",
   {
     variants: {
       variant: {
         primary:
-          "bg-white text-black border border-white hover:bg-black hover:text-white",
+          "bg-white text-black border border-white hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black",
         secondary:
-          "bg-white/10 text-white border border-transparent hover:bg-white hover:text-black hover:border-white",
+          "bg-white/10 text-white border border-transparent hover:bg-white hover:text-black hover:border-white disabled:hover:bg-white/10 disabled:hover:text-white disabled:hover:border-transparent",
         tertiary:
-          "border-white text-white border hover:bg-white hover:text-black",
+          "border-white text-white border hover:bg-white hover:text-black disabled:hover:bg-transparent disabled:hover:text-white",
         quaternary:
           "bg-white/5 shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)] border border-white/50 hover:shadow-[inset_0px_0px_25px_0px_rgba(255,255,255,0.75)]",
         link: "hover:underline",

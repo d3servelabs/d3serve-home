@@ -59,7 +59,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         <button
           disabled={!formState.isValid}
           type="submit"
-          className="px-8 h-full text-lg duration-150 transition-all disabled:opacity-90 disabled:cursor-not-allowed hover:scale-[101%] active:scale-[99%] text-black bg-white/65 rounded-full flex text-nowrap whitespace-nowrap justify-center items-center text-center"
+          className="px-8 h-full text-lg duration-150 transition-all disabled:opacity-90 disabled:cursor-not-allowed hover:scale-[101%] active:scale-[99%] text-black bg-white/65 rounded-full flex text-nowrap whitespace-nowrap hover:bg-white justify-center items-center text-center disabled:hover:scale-100 disabled:active:scale-100 disabled:hover:bg-white/65"
         >
           <span className="mr-2">Get Started</span>
           {formState.isSubmitting ? (

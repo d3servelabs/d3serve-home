@@ -20,12 +20,12 @@ export default function Page() {
           <Products />
         </Container>
       </div>
-      <div className="">
+      <div className="px-8 py-40 bg-[#090909] w-full flex">
         <Container>
           <Trusts />
         </Container>
       </div>
-      <div className="">
+      <div className="px-8 pt-40 bg-[#141414] w-full flex">
         <Container>
           <Labs />
         </Container>
