@@ -72,8 +72,14 @@ export const Button = forwardRef<
     ref,
   ) => {
     const classes = useMemo(
-      () => cn("", variants({ variant, size, disabled }), className),
-      [className, disabled, size, variant],
+      () =>
+        cn(
+          "",
+          variants({ variant, size, disabled }),
+          loading && "cursor-wait disabled:cursor-wait",
+          className,
+        ),
+      [className, disabled, loading, size, variant],
     );
 
     if (href) {

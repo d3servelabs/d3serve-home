@@ -7,14 +7,8 @@ function validateRequest<T>(
 ) {
   return async (request: NextRequest): Promise<NextResponse> => {
     try {
-      const formData = await request.formData();
-      const data = Object.fromEntries(formData.entries()) as Record<
-        string,
-        any
-      >;
-      const validatedData = schema.parse(data);
-
-      return handler(validatedData);
+      const data = await request.json();
+      return handler(schema.parse(data));
     } catch (error) {
       if (error instanceof z.ZodError) {
         return NextResponse.json({ errors: error.errors }, { status: 400 });
@@ -25,7 +19,7 @@ function validateRequest<T>(
 }
 
 const schema = z.object({
-  email: z.string().email(),
+  email: z.string().trim().email("Invalid email address"),
 });
 
 type SchemaType = z.infer<typeof schema>;
