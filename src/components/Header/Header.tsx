@@ -36,7 +36,7 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
         <Logotype />
 
         <Social
-          className="flex items-center gap-1"
+          className="hidden items-center gap-1 md:flex"
           before={
             <Search className="p-4 text-white/50 transition-all duration-150 hover:scale-[101%] hover:text-white active:scale-[99%]" />
           }

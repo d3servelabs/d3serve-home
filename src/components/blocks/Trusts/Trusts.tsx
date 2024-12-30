@@ -38,7 +38,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
         Why digital trust
       </Heading>
 
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-2">
         <Button size="sm" className="text-lg">
           Loss-less-ness
         </Button>
@@ -53,7 +53,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
         </Button>
       </div>
 
-      <div className="flex w-full items-center gap-8">
+      <div className="flex w-full flex-col items-center gap-8 md:flex-row">
         <div className="flex w-full flex-col gap-8 p-8">
           <Image src={Icon} alt="Why digital trust" width={1080} height={764} />
         </div>

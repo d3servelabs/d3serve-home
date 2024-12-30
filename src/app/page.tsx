@@ -36,7 +36,7 @@ export default function Page() {
         </Container>
       </div>
       <div className="flex w-full bg-[#0e0e0e] px-8 py-40">
-        <Container className="flex w-full gap-8">
+        <Container className="flex w-full flex-col gap-16 md:flex-row">
           <Connect />
           <Subscribe />
         </Container>

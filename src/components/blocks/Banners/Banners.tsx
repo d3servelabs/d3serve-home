@@ -49,7 +49,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
             "#FFF 75%",
             "#0091FF 100%",
           ]}
-          className="text-[80px] font-bold"
+          className="text-[80px] font-bold leading-none"
         >
           <Heading level={1}>A Pioneer of Digital Trust</Heading>
         </TextGradient>
@@ -58,7 +58,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
         Building digital trust with blockchain powered software and services.
         Maker of Namefi.io and more
       </div>
-      <div className="mt-16 flex w-full items-center justify-center gap-8 text-center">
+      <div className="mt-16 flex w-full flex-wrap items-center justify-center gap-8 text-center">
         <Button
           href="https://hackmd.io/@d3servelabs/vision"
           target="_blank"

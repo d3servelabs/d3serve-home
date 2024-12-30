@@ -112,7 +112,7 @@ body {
   width: 6px;
   height: 6px;
   z-index: 10000001;
-  background-color: #1d4ed8;
+  background-color: #f76808;
   transition:
     width 0.3s ease-in-out,
     height 0.3s ease-in-out,
@@ -125,7 +125,7 @@ body {
   margin-top: -30px;
   width: 60px;
   height: 60px;
-  background-color: #1d4ed8;
+  background-color: #f76808;
   opacity: 0.3;
 }
 
@@ -142,7 +142,7 @@ body {
   margin-top: -15px;
   width: 30px;
   height: 30px;
-  border: 2px solid #1d4ed8;
+  border: 2px solid #f76808;
   box-sizing: border-box;
   z-index: 10000000;
   opacity: 0.5;
@@ -156,7 +156,7 @@ body {
 .cursor-outer.cursor-laser {
   width: 78px;
   height: 78px;
-  background-color: #1d4ed8;
+  background-color: #f76808;
   filter: blur(62px);
   margin-left: -39px;
   margin-top: -39px;
@@ -178,11 +178,11 @@ body {
   visibility: hidden;
   transform: translateY(15px);
   transition: all 200ms linear;
-  color: var(--toTopInnerColor);
+  color: var(--to-top-inner-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 0 2px var(--toTopOuterColor);
+  box-shadow: inset 0 0 0 2px var(--to-top-outer-color);
 }
 
 .to-top.active {
@@ -199,7 +199,7 @@ body {
   transition: stroke-dashoffset 10ms linear 0s;
   stroke-dasharray: 307.919, 307.919;
   stroke-dashoffset: 307.919;
-  stroke: var(--toTopInnerColor);
+  stroke: var(--to-top-inner-color);
   stroke-width: 4;
   fill: transparent;
 }

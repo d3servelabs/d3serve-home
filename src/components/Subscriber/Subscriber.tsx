@@ -47,6 +47,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         ref={ref}
         className={cn(
           "flex w-full p-2 gap-2 h-14 bg-white/10 rounded-full",
+          !formState.isValid && "bg-red-600/10",
           className,
         )}
         {...rest}
@@ -57,7 +58,6 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
           {...register("email")}
         />
         <button
-          disabled={!formState.isValid}
           type="submit"
           className="flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full bg-white/65 px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] hover:bg-white active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:hover:bg-white/65 disabled:active:scale-100"
         >

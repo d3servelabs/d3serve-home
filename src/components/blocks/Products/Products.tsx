@@ -64,7 +64,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
           </div>
         </BackgroundGradient>
 
-        <div className="grid w-full grid-cols-2 gap-8">
+        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
           <BackgroundGradient className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 px-12 py-8 text-center">
             <div className="relative flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white">
               <SvgD3Cards className="size-20" />

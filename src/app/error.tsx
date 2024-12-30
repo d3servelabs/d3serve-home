@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { HTMLAttributes, useEffect } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/Alert";
 import { AlertTriangleIcon } from "lucide-react";
 import { Button } from "@/components/Button";
 
-export default function Error({
-  error,
-  reset,
-}: {
+type Props = HTMLAttributes<HTMLDivElement> & {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+};
+
+export default function Error({ error, reset }: Readonly<Props>) {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -36,7 +35,7 @@ export default function Error({
         )}
       </div>
       <div className="flex gap-4">
-        <Button onClick={() => reset()} variant="primary">
+        <Button onClick={reset} variant="primary">
           Try again
         </Button>
         <Button href="/" variant="secondary">
