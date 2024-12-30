@@ -3,7 +3,7 @@ import { cn } from "@/utils/cn";
 import { forwardRef, HTMLAttributes } from "react";
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
+  "relative w-full rounded-lg border p-4 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-8",
   {
     variants: {
       variant: {
@@ -37,7 +37,7 @@ export const AlertTitle = forwardRef<
 >(({ className, ...rest }, ref) => (
   <div
     ref={ref}
-    className={cn("mb-1 font-medium leading-none tracking-tight", className)}
+    className={cn("font-medium tracking-tight", className)}
     {...rest}
   />
 ));
@@ -47,10 +47,6 @@ export const AlertDescription = forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...rest }, ref) => (
-  <div
-    ref={ref}
-    className={cn("text-sm [&_p]:leading-relaxed", className)}
-    {...rest}
-  />
+  <div ref={ref} className={cn("[&_p]:leading-relaxed", className)} {...rest} />
 ));
 AlertDescription.displayName = "AlertDescription";

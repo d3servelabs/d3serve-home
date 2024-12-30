@@ -137,7 +137,7 @@ export function AmplitudesProvider({
   const initialize = useCallback(async () => {
     if (!key) {
       const message = `Missing API key`;
-      console.error(`[AMPLITUDES]: ${message}.`);
+      console.warn(`[AMPLITUDES]: ${message}.`);
       setEnabled(false);
       options.onError?.(new Error(message));
       return;

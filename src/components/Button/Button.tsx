@@ -24,7 +24,9 @@ const variants = cva(
         tertiary:
           "border border-white text-white hover:bg-white hover:text-black disabled:hover:bg-transparent disabled:hover:text-white",
         quaternary:
-          "border border-white/50 bg-white/5 shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)] hover:shadow-[inset_0px_0px_25px_0px_rgba(255,255,255,0.75)]",
+          "border border-white/50 bg-white/5 shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)] hover:shadow-[inset_0px_0px_25px_0px_rgba(255,255,255,0.75)] disabled:hover:shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)]",
+        destructive:
+          "border border-destructive/50 text-destructive hover:bg-destructive/10 hover:text-destructive disabled:hover:bg-transparent disabled:hover:text-destructive",
         link: "hover:underline",
       },
       size: {

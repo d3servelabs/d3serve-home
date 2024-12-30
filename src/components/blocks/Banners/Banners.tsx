@@ -49,7 +49,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
             "#FFF 75%",
             "#0091FF 100%",
           ]}
-          className="text-[80px] font-bold leading-none"
+          className="text-[80px] font-bold leading-tight"
         >
           <Heading level={1}>A Pioneer of Digital Trust</Heading>
         </TextGradient>

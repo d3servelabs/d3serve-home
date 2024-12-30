@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/utils/cn";
 import { Input } from "@/components/Input";
 import SvgArrowRight from "@/components/icons/icons/ArrowRight";
+import { fetchWithRetry } from "@/utils/fetchWithRetry";
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -32,13 +33,19 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
   ) {
     const { register, handleSubmit, formState } = useForm<Schema>({
       resolver: zodResolver(schema),
-      mode: "all",
     });
 
-    console.log("formState", formState);
-
-    const onSubmit = useCallback((data: Schema) => {
+    const onSubmit = useCallback(async (data: Schema) => {
       console.log("Form submitted with data:", data);
+
+      const response = await fetchWithRetry("/api/subscribe", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log("Successfully subscribed");
+      }
     }, []);
 
     return (
@@ -46,8 +53,8 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         onSubmit={handleSubmit(onSubmit)}
         ref={ref}
         className={cn(
-          "flex w-full p-2 gap-2 h-14 bg-white/10 rounded-full",
-          !formState.isValid && "bg-red-600/10",
+          "flex w-full p-2 gap-2 h-14 bg-white/10 transition-all duration-150 rounded-full",
+          formState.errors.email && "bg-red-600/10",
           className,
         )}
         {...rest}

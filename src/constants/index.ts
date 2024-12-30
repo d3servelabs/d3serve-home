@@ -17,6 +17,12 @@ export const CONTACTS = {
   phone: "",
 };
 
+export const PRODUCTS = {
+  NAMEFI: "https://www.namefi.io",
+  D3CARDS: "https://d3.cards",
+  D3CAF: "https://github.com/d3servelabs/d3caf",
+};
+
 export const WEBSITE = {
   name: "D3Serve Labs",
   title: "D3Serve Labs",
@@ -27,6 +33,7 @@ export const WEBSITE = {
   keywords: [],
   socials: SOCIALS,
   contacts: CONTACTS,
+  namefi: PRODUCTS,
 };
 
 export const HAS_CURSOR = false;

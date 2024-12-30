@@ -1,46 +1,51 @@
 "use client";
 
-import { HTMLAttributes, useEffect } from "react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/Alert";
-import { AlertTriangleIcon } from "lucide-react";
+import { HTMLAttributes, useCallback, useEffect } from "react";
 import { Button } from "@/components/Button";
 
 type Props = HTMLAttributes<HTMLDivElement> & {
   error: Error & { digest?: string };
-  reset: () => void;
+  reset?: () => void;
 };
 
 export default function Error({ error, reset }: Readonly<Props>) {
+  const handleAgain = useCallback(() => {
+    if (reset) {
+      reset();
+    } else {
+      window.location.reload();
+    }
+  }, [reset]);
+
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <div className="container mx-auto flex min-h-screen flex-col items-center justify-center px-4 py-8">
-      <Alert variant="destructive" className="mb-6 w-full max-w-md">
-        <AlertTriangleIcon className="size-4" />
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>
-          {error.message || "Something went wrong!"}
-        </AlertDescription>
-      </Alert>
-      <div className="mb-6 text-center">
-        <h2 className="mb-2 text-2xl font-bold">Oops! An error occurred</h2>
-        <div className="mb-4 text-gray-600">
+    <div className="flex flex-1 flex-col items-center justify-center gap-4 p-8 text-center">
+      <div className="flex w-full max-w-xl flex-col items-center justify-center gap-4 text-center">
+        <h1 className="text-6xl font-bold">Oops! An error occurred</h1>
+        <div className="text-2xl">
           Don&#39;t worry, we&#39;re on it. In the meantime, you can try again
           or go back to the homepage.
         </div>
         {error.digest && (
-          <div className="text-sm text-gray-500">Error ID: {error.digest}</div>
+          <div className="text-lg text-muted-foreground">
+            Error ID: {error.digest}
+          </div>
         )}
-      </div>
-      <div className="flex gap-4">
-        <Button onClick={reset} variant="primary">
-          Try again
-        </Button>
-        <Button href="/" variant="secondary">
-          Go to Homepage
-        </Button>
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+          <Button
+            onClick={handleAgain}
+            variant="primary"
+            className="w-full sm:w-auto"
+          >
+            Try again
+          </Button>
+          <Button href="/" variant="secondary" className="w-full sm:w-auto">
+            Go to Homepage
+          </Button>
+        </div>
       </div>
     </div>
   );

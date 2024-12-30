@@ -33,9 +33,11 @@ export default function RootLayout({ children }: Readonly<Props>) {
           <Preloader />
           <Providers>
             <Contexts>
-              <Header />
-              {children}
-              <Footer />
+              <div className="flex min-h-screen w-full flex-col">
+                <Header />
+                <div className="flex w-full flex-1 flex-col">{children}</div>
+                <Footer />
+              </div>
             </Contexts>
           </Providers>
         </Contexts>
