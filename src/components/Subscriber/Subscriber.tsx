@@ -79,6 +79,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         )}
         {!success && (
           <Input
+            disabled={formState.isSubmitting}
             placeholder="Enter your email"
             className="size-full rounded-full bg-transparent px-8 tracking-widest outline-0 placeholder:text-white/30 autofill:!bg-transparent"
             {...register("email")}
