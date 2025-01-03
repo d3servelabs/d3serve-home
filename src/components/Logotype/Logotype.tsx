@@ -9,6 +9,7 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import type { UrlObject } from "url";
 import SvgLogotypeLine from "@/components/icons/LogotypeLine";
+import SvgLogotypeSquare from "@/components/icons/LogotypeSquare";
 
 export type LogotypeProps = HTMLAttributes<HTMLAnchorElement> & {
   href?: string | UrlObject;
@@ -33,7 +34,8 @@ export const Logotype: ForwardRefExoticComponent<LogotypeProps> = forwardRef<
       )}
       {...rest}
     >
-      <SvgLogotypeLine className="h-8 w-52" />
+      <SvgLogotypeLine className="hidden h-8 w-[205px] md:block" />
+      <SvgLogotypeSquare className="block size-8 md:hidden" />
     </Link>
   );
 });

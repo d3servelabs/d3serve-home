@@ -71,23 +71,23 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
             "#FFF 75%",
             "#0091FF 100%",
           ]}
-          className="text-[80px] font-bold leading-tight"
+          className="text-[40px] font-bold leading-tight md:text-[80px]"
         >
           <Heading level={1}>A Pioneer of Digital Trust</Heading>
         </TextGradient>
       </div>
-      <div className="flex w-full items-center justify-center text-center text-xl leading-9 text-white/60">
+      <div className="flex w-full items-center justify-center text-center text-base leading-9 text-white/60 md:text-xl">
         Building digital trust with blockchain powered software and services.
         Maker of Namefi.io and more
       </div>
-      <div className="mt-16 flex w-full flex-wrap items-center justify-center gap-8 text-center">
+      <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-8 text-center md:mt-16">
         <Button
           onClick={handleReadManifesto}
           href="https://hackmd.io/@d3servelabs/vision"
           target="_blank"
           variant="primary"
           size="lg"
-          className="bg-white/70"
+          className="w-60 bg-white/70 md:w-auto"
         >
           Read manifesto
           <SvgArrowUpRight className="ml-2 inline-flex size-6" />
@@ -96,7 +96,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           onClick={handlePartnerWithUs}
           variant="tertiary"
           size="lg"
-          className=""
+          className="w-60 md:w-auto"
         >
           Partner with us
         </Button>

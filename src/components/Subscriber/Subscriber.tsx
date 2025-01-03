@@ -107,7 +107,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         {...rest}
       >
         {success && (
-          <div className="line-clamp-1 flex size-full items-center px-8 font-bold text-white">
+          <div className="line-clamp-1 flex size-full items-center px-4 font-bold text-white md:px-8">
             Thank you for subscribing!
           </div>
         )}
@@ -115,7 +115,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
           <Input
             disabled={formState.isSubmitting}
             placeholder="Enter your email"
-            className="size-full rounded-full bg-transparent px-8 outline-0 placeholder:text-white/30 autofill:!bg-transparent"
+            className="size-full rounded-full bg-transparent px-4 outline-0 placeholder:text-white/30 autofill:!bg-transparent md:px-8"
             {...register("email")}
           />
         )}
@@ -123,9 +123,9 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         {success && (
           <button
             onClick={handleResubscribe}
-            className="flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full bg-white px-8 text-center text-lg font-semibold text-black transition-all duration-150 hover:scale-[101%] hover:bg-white active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:hover:bg-white disabled:active:scale-100"
+            className="flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full bg-white px-4 text-center text-lg font-semibold text-black transition-all duration-150 hover:scale-[101%] hover:bg-white active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:hover:bg-white disabled:active:scale-100 md:px-8"
           >
-            <span className="mr-2">Re-subscribe</span>
+            <span className="mr-2 hidden md:inline">Re-subscribe</span>
             <RefreshCwIcon className="inline-flex size-5" />
           </button>
         )}
@@ -135,7 +135,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
             type="submit"
             disabled={formState.isSubmitting}
             className={cn(
-              "flex h-full items-center font-semibold justify-center whitespace-nowrap text-nowrap rounded-full px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
+              "flex h-full items-center font-semibold justify-center whitespace-nowrap text-nowrap rounded-full px-4 md:px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
               " bg-transparent hover:bg-white hover:text-black disabled:hover:text-white/30 disabled:hover:bg-transparent",
               formState.isValid && !formState.errors.email
                 ? "text-white"
@@ -143,7 +143,7 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
               formState.isSubmitting && "cursor-wait disabled:cursor-wait",
             )}
           >
-            <span className="mr-2">Get Started</span>
+            <span className="mr-2 hidden md:inline">Get Started</span>
             {formState.isSubmitting ? (
               <Loader2Icon className="size-5 animate-spin" />
             ) : (

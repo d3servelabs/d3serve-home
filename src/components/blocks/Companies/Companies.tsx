@@ -157,10 +157,13 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
       )}
       {...rest}
     >
-      <Heading className="text-6xl font-bold" level={2}>
+      <Heading
+        className="text-center text-4xl font-bold md:text-6xl "
+        level={2}
+      >
         Backed by the best
       </Heading>
-      <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-xl leading-9 text-white/60">
+      <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
       <div className="flex flex-wrap items-center justify-center gap-2">

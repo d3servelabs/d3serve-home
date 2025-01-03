@@ -13,7 +13,7 @@ import { Loader2Icon } from "lucide-react";
 import type { UrlObject } from "url";
 
 const variants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap text-nowrap rounded-full text-center font-roboto-mono leading-none tracking-widest transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
+  "inline-flex items-center justify-center whitespace-nowrap text-nowrap rounded-full text-center font-roboto-mono leading-none transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
   {
     variants: {
       variant: {

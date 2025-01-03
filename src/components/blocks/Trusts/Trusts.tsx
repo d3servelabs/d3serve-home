@@ -93,11 +93,11 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
       )}
       {...rest}
     >
-      <Heading className="text-6xl font-bold" level={2}>
+      <Heading className="text-center text-4xl font-bold md:text-6xl" level={2}>
         Why digital trust
       </Heading>
 
-      <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-xl leading-9 text-white/60">
+      <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
 
@@ -133,7 +133,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
             </Heading>
           )}
           {active.description && (
-            <div className="line-clamp-6 w-full break-words text-xl leading-9 text-white/60">
+            <div className="line-clamp-6 w-full break-words text-base leading-7 text-white/60 md:text-xl md:leading-9">
               {active.description}
             </div>
           )}
@@ -143,7 +143,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
               <Link
                 href={active.link}
                 target="_blank"
-                className="group text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
+                className="group text-white/40 transition-all duration-150 hover:scale-105 hover:text-white active:scale-[99%]"
               >
                 Read more
                 <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />

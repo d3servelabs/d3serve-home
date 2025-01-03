@@ -53,10 +53,10 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
       )}
       {...rest}
     >
-      <Heading className="text-6xl font-bold" level={2}>
+      <Heading className="text-center text-4xl font-bold md:text-6xl" level={2}>
         Explore Our Products
       </Heading>
-      <div className="flex w-full items-center justify-center text-center text-xl leading-9 text-white/60">
+      <div className="flex w-full items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         Discover cutting-edge tools and solutions to trade, manage, and transfer
         your onchain domains seamlessly.
       </div>
@@ -71,8 +71,14 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
         >
           <div className="pointer-events-none absolute inset-0 size-full">
             <Noise className="absolute inset-0 size-full" />
-            <SvgProduct1GradientLeft className="absolute -left-4 h-full" />
-            <SvgProduct1GradientRight className="absolute -right-4 h-full" />
+            <SvgProduct1GradientLeft
+              preserveAspectRatio="none"
+              className="absolute left-0 h-full"
+            />
+            <SvgProduct1GradientRight
+              preserveAspectRatio="none"
+              className="absolute right-0 h-full"
+            />
           </div>
 
           <Link
@@ -92,7 +98,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
               onClick={handleItemClick(PRODUCTS.NAMEFI)}
               href={PRODUCTS.NAMEFI.url}
               target="_blank"
-              className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
+              className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 hover:text-white active:scale-[99%]"
             >
               Learn more
               <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />
@@ -110,7 +116,10 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
           >
             <div className="pointer-events-none absolute inset-0 size-full">
               <Noise className="absolute inset-0 size-full" />
-              <SvgProduct2GradientLeft className="absolute -left-4 top-0 h-full" />
+              <SvgProduct2GradientLeft
+                preserveAspectRatio="none"
+                className="absolute left-0 top-0 h-full"
+              />
             </div>
             <Link
               onClick={handleItemClick(PRODUCTS.D3CARDS)}
@@ -129,7 +138,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
                 onClick={handleItemClick(PRODUCTS.D3CARDS)}
                 href={PRODUCTS.D3CARDS.url}
                 target="_blank"
-                className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
+                className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 hover:text-white active:scale-[99%]"
               >
                 Learn more
                 <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />
@@ -145,7 +154,10 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
           >
             <div className="pointer-events-none absolute inset-0 size-full">
               <Noise className="absolute inset-0 size-full" />
-              <SvgProduct3GradientRight className="absolute -right-4 bottom-0 h-full" />
+              <SvgProduct3GradientRight
+                preserveAspectRatio="none"
+                className="absolute bottom-0 right-0 h-full"
+              />
             </div>
             <Link
               onClick={handleItemClick(PRODUCTS.D3CAF)}
@@ -164,7 +176,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
                 onClick={handleItemClick(PRODUCTS.D3CAF)}
                 href={PRODUCTS.D3CAF.url}
                 target="_blank"
-                className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
+                className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 hover:text-white active:scale-[99%]"
               >
                 Learn more
                 <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />

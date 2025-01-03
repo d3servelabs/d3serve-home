@@ -57,9 +57,11 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
 
         <Social
           onItemClick={handleSocialClick}
-          className="hidden items-center gap-1 md:flex"
+          className="flex items-center gap-1"
           before={
             <Search
+              href={WEBSITE.links.search}
+              target="_blank"
               onClick={handleSearchClick}
               className="p-4 text-white/50 transition-all duration-150 hover:scale-[101%] hover:text-white active:scale-[99%]"
             />

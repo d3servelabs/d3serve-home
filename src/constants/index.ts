@@ -17,6 +17,10 @@ export const CONTACTS = {
   phone: "",
 };
 
+export const LINKS = {
+  search: "https://www.namefi.io",
+};
+
 export const PRODUCTS = {
   NAMEFI: {
     title: "Namefi",
@@ -45,7 +49,8 @@ export const WEBSITE = {
   keywords: [],
   socials: SOCIALS,
   contacts: CONTACTS,
-  namefi: PRODUCTS,
+  links: LINKS,
+  products: PRODUCTS,
 };
 
 export const HAS_CURSOR = false;

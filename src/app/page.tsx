@@ -33,17 +33,17 @@ export default function Page() {
           <Labs />
         </Container>
       </div>
-      <div className="flex w-full bg-[#090909] px-8 pb-48 pt-56">
+      <div className="flex w-full bg-[#090909] px-8 pb-48 pt-36 md:pt-56">
         <Container className="">
           <Companies />
         </Container>
       </div>
 
-      <div className="flex w-full bg-[#0e0e0e] px-8 pt-40">
-        <Container className="relative flex w-full flex-col gap-8 rounded-3xl border border-white/10 bg-[rgba(255,255,255,0.01)] px-8 py-24 shadow-[inset_0px_0px_100px_0px_rgba(255,255,255,0.07)] md:flex-row">
+      <div className="flex w-full bg-[#0e0e0e] px-4 pt-20 md:px-8 md:pt-40">
+        <Container className="relative flex w-full flex-col gap-4 rounded-3xl border border-white/10 bg-[rgba(255,255,255,0.01)] px-4 py-12 shadow-[inset_0px_0px_100px_0px_rgba(255,255,255,0.07)] md:gap-8 md:px-8 md:py-24 lg:flex-row">
           <Noise className="pointer-events-none absolute inset-0 size-full rounded-3xl" />
-          <Connect className="relative p-8" />
-          <Subscribe className="relative p-8" />
+          <Connect className="relative p-4 md:p-8" />
+          <Subscribe className="relative p-4 md:p-8" />
         </Container>
       </div>
     </div>

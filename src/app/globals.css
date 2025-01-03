@@ -107,6 +107,11 @@ input:-webkit-autofill:focus {
   box-shadow: 0 0 0 1000px transparent inset !important;
 }
 
+::selection {
+  color: #000000;
+  background-color: #ffffff;
+}
+
 /*---------------------------------------------------*/
 /*	CURSOR
 /*---------------------------------------------------*/

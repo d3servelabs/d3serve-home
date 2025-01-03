@@ -31,10 +31,10 @@ export const Labs: ForwardRefExoticComponent<LabsProps> = forwardRef<
       )}
       {...rest}
     >
-      <Heading className="text-6xl font-bold" level={2}>
+      <Heading className="text-center text-4xl font-bold md:text-6xl" level={2}>
         D3Serve Labs + ICANN
       </Heading>
-      <div className="flex w-full max-w-7xl items-center justify-center text-center text-xl leading-9 text-white/60">
+      <div className="flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         D3Serve Labs is now an ICANN-accredited registrar providing enhanced
         legitimacy and trust, access to a wider range of domain names and better
         pricing, increased security and protection, and easy transfer of domain

@@ -53,9 +53,9 @@ export default function Page() {
   );
 
   return (
-    <div className="flex w-full flex-1 flex-col gap-8 p-8">
-      <Container className="space-x-8 space-y-8">{buttons}</Container>
-      <Container className="space-x-8 space-y-8">
+    <div className="flex w-full flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+      <Container className="flex flex-wrap gap-4 md:gap-8">{buttons}</Container>
+      <Container className="flex flex-wrap gap-4 md:gap-8">
         <Alert
           variant="default"
           className="inline-flex w-full max-w-md flex-col"
