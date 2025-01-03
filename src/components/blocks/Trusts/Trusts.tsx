@@ -88,7 +88,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-col gap-12 w-full items-center justify-center",
+        "flex flex-col gap-6 md:gap-12 w-full items-center justify-center",
         className,
       )}
       {...rest}
@@ -97,26 +97,28 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
         Why digital trust
       </Heading>
 
-      <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
+      <div className="mt-2 flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:mt-4 md:text-xl md:leading-9">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {items.map((item) => (
-          <Button
-            key={item.title}
-            size="md"
-            variant={item === active ? "primary" : "secondary"}
-            onClick={handleActive(item)}
-          >
-            {item.title}
-          </Button>
-        ))}
+      <div className="hide-scrollbar w-full max-w-full overflow-x-auto overflow-y-hidden">
+        <div className="mx-auto inline-flex flex-nowrap items-center gap-2">
+          {items.map((item) => (
+            <Button
+              key={item.title}
+              size="md"
+              variant={item.title === active.title ? "primary" : "secondary"}
+              onClick={handleActive(item)}
+            >
+              {item.title}
+            </Button>
+          ))}
+        </div>
       </div>
 
-      <div className="flex w-full flex-col items-center gap-8 rounded-3xl border border-white/10 bg-black/60 p-8 backdrop-blur-[100px] md:flex-row">
+      <div className="flex w-full flex-col items-center gap-4 rounded-3xl border border-white/10 bg-black/60 p-4 backdrop-blur-[100px] md:flex-row md:gap-8 md:p-8">
         {active.image && (
-          <div className="flex w-full flex-col items-center justify-center p-4">
+          <div className="flex w-full flex-col items-center justify-center p-2 md:p-4">
             <Image
               src={active.image}
               alt={active.title}
@@ -126,7 +128,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
             />
           </div>
         )}
-        <div className="flex w-full flex-col gap-8 p-4">
+        <div className="flex w-full flex-col gap-4 p-2 md:gap-8 md:p-4">
           {active.title && (
             <Heading className="text-3xl font-bold" level={3}>
               {active.title}

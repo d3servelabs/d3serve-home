@@ -48,7 +48,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-col gap-8 w-full text-center items-center justify-center",
+        "flex flex-col gap-4 md:gap-8 w-full text-center items-center justify-center",
         className,
       )}
       {...rest}
@@ -61,13 +61,13 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
         your onchain domains seamlessly.
       </div>
 
-      <div className="mt-8 flex w-full flex-col gap-8">
+      <div className="mt-4 flex w-full flex-col gap-4 md:mt-8 md:gap-8">
         <div
           style={{
             boxShadow:
               "0px 2347px 657px 0px rgba(0, 0, 0, 0.00), 0px 1502px 601px 0px rgba(0, 0, 0, 0.01), 0px 845px 507px 0px rgba(0, 0, 0, 0.05), 0px 375px 375px 0px rgba(0, 0, 0, 0.09), 0px 94px 207px 0px rgba(0, 0, 0, 0.10)",
           }}
-          className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-12 py-8 text-center backdrop-blur-[100px]"
+          className="flex w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-6 py-4 text-center backdrop-blur-[100px] md:gap-8 md:px-12 md:py-8"
         >
           <div className="pointer-events-none absolute inset-0 size-full">
             <Noise className="absolute inset-0 size-full" />
@@ -85,7 +85,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
             onClick={handleItemClick(PRODUCTS.NAMEFI)}
             href={PRODUCTS.NAMEFI.url}
             target="_blank"
-            className="relative flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105"
+            className="relative flex w-full items-center justify-center gap-2 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105 md:gap-4"
           >
             <SvgNamefi2 className="size-20 overflow-hidden rounded-2xl" />
             {PRODUCTS.NAMEFI.title}
@@ -106,13 +106,13 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
           </div>
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
           <div
             style={{
               boxShadow:
                 "0px 2347px 657px 0px rgba(0, 0, 0, 0.00), 0px 1502px 601px 0px rgba(0, 0, 0, 0.01), 0px 845px 507px 0px rgba(0, 0, 0, 0.05), 0px 375px 375px 0px rgba(0, 0, 0, 0.09), 0px 94px 207px 0px rgba(0, 0, 0, 0.10)",
             }}
-            className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-12 py-8 text-center backdrop-blur-[100px]"
+            className="flex w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-6 py-4 text-center backdrop-blur-[100px] md:gap-8 md:px-12 md:py-8"
           >
             <div className="pointer-events-none absolute inset-0 size-full">
               <Noise className="absolute inset-0 size-full" />
@@ -150,7 +150,7 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
               boxShadow:
                 "0px 2347px 657px 0px rgba(0, 0, 0, 0.00), 0px 1502px 601px 0px rgba(0, 0, 0, 0.01), 0px 845px 507px 0px rgba(0, 0, 0, 0.05), 0px 375px 375px 0px rgba(0, 0, 0, 0.09), 0px 94px 207px 0px rgba(0, 0, 0, 0.10)",
             }}
-            className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-12 py-8 text-center backdrop-blur-[100px]"
+            className="flex w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-6 py-4 text-center backdrop-blur-[100px] md:gap-8 md:px-12 md:py-8"
           >
             <div className="pointer-events-none absolute inset-0 size-full">
               <Noise className="absolute inset-0 size-full" />

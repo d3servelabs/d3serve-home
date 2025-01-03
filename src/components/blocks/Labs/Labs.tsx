@@ -26,7 +26,7 @@ export const Labs: ForwardRefExoticComponent<LabsProps> = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-col gap-16 w-full text-center items-center justify-center",
+        "flex flex-col gap-8 md:gap-16 w-full text-center items-center justify-center",
         className,
       )}
       {...rest}
@@ -41,7 +41,7 @@ export const Labs: ForwardRefExoticComponent<LabsProps> = forwardRef<
         names to and from Namefi.
       </div>
 
-      <div className="relative mt-20 flex h-[448px] w-full items-start justify-center overflow-hidden">
+      <div className="relative mt-4 flex h-[133px] w-full items-start justify-center overflow-hidden md:mt-20 md:h-[448px]">
         <div className="glob-pulse w-full max-w-6xl">
           <Image
             width={1448}

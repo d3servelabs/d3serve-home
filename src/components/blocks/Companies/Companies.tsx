@@ -166,22 +166,27 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
       <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {tags.map((tag) => (
-          <Button
-            key={tag}
-            size="sm"
-            variant={tag === active ? "primary" : "secondary"}
-            className={cn("px-8 text-lg", tag === active ? "" : "bg-white/25")}
-            onClick={handleActive(tag)}
-          >
-            {tag}
-          </Button>
-        ))}
+      <div className="hide-scrollbar w-full max-w-full overflow-x-auto overflow-y-hidden">
+        <div className="mx-auto inline-flex flex-nowrap items-center gap-2">
+          {tags.map((tag) => (
+            <Button
+              key={tag}
+              size="sm"
+              variant={tag === active ? "primary" : "secondary"}
+              className={cn(
+                "px-8 text-lg",
+                tag === active ? "" : "bg-white/25",
+              )}
+              onClick={handleActive(tag)}
+            >
+              {tag}
+            </Button>
+          ))}
+        </div>
       </div>
       <motion.div
         layout
-        className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        className="mt-6 grid w-full grid-cols-2 gap-0 md:mt-12 md:grid-cols-3 md:gap-4 lg:grid-cols-4"
       >
         <AnimatePresence>
           {filters.map((item, index) => {
@@ -199,10 +204,10 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 title={overview}
-                className="flex w-full items-center justify-center p-4"
+                className="flex w-full items-center justify-center p-2 md:p-4"
                 key={index}
               >
-                <item.icon className="transition-all duration-150 ease-in-out hover:scale-105" />
+                <item.icon className="scale-75 transition-all duration-150 ease-in-out hover:scale-105 md:scale-100" />
                 {overview && <span className="sr-only">{overview}</span>}
               </motion.button>
             );

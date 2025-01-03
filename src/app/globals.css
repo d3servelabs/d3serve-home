@@ -260,3 +260,8 @@ input:-webkit-autofill:focus {
     transform: scale(1.01);
   }
 }
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
