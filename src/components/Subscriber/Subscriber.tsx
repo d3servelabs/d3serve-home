@@ -17,6 +17,8 @@ import { cn } from "@/utils/cn";
 import { Input } from "@/components/Input";
 import SvgArrowRight from "@/components/icons/icons/ArrowRight";
 import { fetchWithRetry } from "@/utils/fetchWithRetry";
+import { useTrackers } from "@/contexts/trackers";
+import { EVENTS } from "@/constants";
 
 const schema = z.object({
   email: z.string().trim().email("Invalid email address"),
@@ -36,20 +38,52 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
   ) {
     const [success, setSuccess] = useState(false);
 
-    const { register, handleSubmit, formState } = useForm<Schema>({
+    const { trackers } = useTrackers();
+
+    const { register, handleSubmit, reset, formState } = useForm<Schema>({
       resolver: zodResolver(schema),
+      defaultValues: {
+        email: "",
+      },
     });
 
-    const onSubmit = useCallback(async (data: Schema) => {
-      console.log("Form submitted with data:", data);
+    const onSubmit = useCallback(
+      async (data: Schema) => {
+        const response = await fetchWithRetry("/api/subscribe", {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
 
-      const response = await fetchWithRetry("/api/subscribe", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+        setSuccess(response.ok);
 
-      setSuccess(response.ok);
-    }, []);
+        await trackers(
+          response.ok ? EVENTS.SUBSCRIBE_SUCCESS : EVENTS.SUBSCRIBE_ERROR,
+          {
+            response: `${response.statusText} (${response.status})`,
+          },
+        );
+      },
+      [trackers],
+    );
+
+    const handleSubscribe = useCallback(async () => {
+      await trackers(EVENTS.SUBSCRIBE_CLICK);
+    }, [trackers]);
+
+    const handleResubscribe = useCallback(async () => {
+      setSuccess(false);
+
+      reset(
+        {
+          email: "",
+        },
+        {
+          keepErrors: true,
+        },
+      );
+
+      await trackers(EVENTS.RESUBSCRIBE_CLICK);
+    }, [reset, trackers]);
 
     useEffect(() => {
       if (success) {
@@ -66,8 +100,8 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
         onSubmit={handleSubmit(onSubmit)}
         ref={ref}
         className={cn(
-          "flex relative w-full p-2 gap-2 h-14 bg-white/10 transition-all duration-150 rounded-full",
-          !formState.isValid && "bg-red-600/10",
+          "flex relative font-roboto-mono w-full p-2 gap-2 h-14 bg-white/5 transition-all duration-150 rounded-full",
+          formState.errors.email && "bg-red-600/10",
           className,
         )}
         {...rest}
@@ -81,29 +115,31 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
           <Input
             disabled={formState.isSubmitting}
             placeholder="Enter your email"
-            className="size-full rounded-full bg-transparent px-8 tracking-widest outline-0 placeholder:text-white/30 autofill:!bg-transparent"
+            className="size-full rounded-full bg-transparent px-8 outline-0 placeholder:text-white/30 autofill:!bg-transparent"
             {...register("email")}
           />
         )}
 
         {success && (
           <button
-            onClick={() => setSuccess(false)}
-            className="flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full bg-white px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] hover:bg-white active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:hover:bg-white disabled:active:scale-100"
+            onClick={handleResubscribe}
+            className="flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full bg-white px-8 text-center text-lg font-semibold text-black transition-all duration-150 hover:scale-[101%] hover:bg-white active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:hover:bg-white disabled:active:scale-100"
           >
-            <span className="mr-2"> Subscribe Again</span>
+            <span className="mr-2">Re-subscribe</span>
             <RefreshCwIcon className="inline-flex size-5" />
           </button>
         )}
         {!success && (
           <button
+            onClick={handleSubscribe}
             type="submit"
             disabled={formState.isSubmitting}
             className={cn(
-              "flex h-full items-center justify-center whitespace-nowrap text-nowrap rounded-full px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
-              formState.isValid
-                ? "bg-white hover:bg-white disabled:hover:bg-white"
-                : "bg-white/65 hover:bg-white/85 disabled:hover:bg-white/65",
+              "flex h-full items-center font-semibold justify-center whitespace-nowrap text-nowrap rounded-full px-8 text-center text-lg text-black transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
+              " bg-transparent hover:bg-white hover:text-black disabled:hover:text-white/30 disabled:hover:bg-transparent",
+              formState.isValid && !formState.errors.email
+                ? "text-white"
+                : "text-white/30",
               formState.isSubmitting && "cursor-wait disabled:cursor-wait",
             )}
           >

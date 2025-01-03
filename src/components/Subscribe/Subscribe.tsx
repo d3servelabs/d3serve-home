@@ -30,7 +30,7 @@ export const Subscribe: ForwardRefExoticComponent<SubscribeProps> = forwardRef<
       <Heading level={3} className="text-4xl font-bold text-white">
         Subscribe to receive updates
       </Heading>
-      <div className="flex w-full text-2xl text-white/70">
+      <div className="flex w-full text-xl leading-9 text-white/60">
         Stay ahead with the latest trends, onchain domains, and exclusive
         product news.
       </div>

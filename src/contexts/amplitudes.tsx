@@ -72,6 +72,12 @@ const loggerWrapper: FN = async (eventName, eventProperties, eventOptions) => {
   };
 };
 
+export interface AmplitudesProviderProps {
+  children: ReactNode;
+  key?: string;
+  options?: Partial<Options>;
+}
+
 export interface IAmplitudesContext {
   key?: string;
   enabled?: boolean;
@@ -117,11 +123,7 @@ export function AmplitudesProvider({
   children,
   key: initialKey,
   options: initialOptions,
-}: {
-  children: ReactNode;
-  key?: string;
-  options?: Partial<Options>;
-}) {
+}: Readonly<AmplitudesProviderProps>) {
   const [key, setKey] = useState(
     initialKey ??
       process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY ??

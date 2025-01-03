@@ -1,9 +1,12 @@
+"use client";
+
 import {
   HTMLAttributes,
   forwardRef,
   ForwardRefExoticComponent,
   ForwardedRef,
   ReactNode,
+  useCallback,
 } from "react";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
@@ -14,6 +17,7 @@ import SvgGithub from "@/components/icons/socials/Github";
 import SvgTelegram from "@/components/icons/socials/Telegram";
 import SvgLinkedin from "@/components/icons/socials/Linkedin";
 import SvgMail from "@/components/icons/icons/Mail";
+import { CONTACTS, SOCIALS } from "@/types";
 
 export type SocialProps = HTMLAttributes<HTMLDivElement> & {
   discord?: string;
@@ -26,6 +30,8 @@ export type SocialProps = HTMLAttributes<HTMLDivElement> & {
   before?: ReactNode;
   after?: ReactNode;
   item?: HTMLAttributes<HTMLElement>;
+  icon?: HTMLAttributes<SVGSVGElement>;
+  onItemClick?: (item: SOCIALS | CONTACTS) => void;
   ref?: ForwardedRef<HTMLDivElement>;
 };
 
@@ -44,11 +50,20 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
     before,
     after,
     item,
+    icon,
+    onItemClick,
     className,
     ...rest
   }: SocialProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
+  const handleItemClick = useCallback(
+    (item: SOCIALS | CONTACTS) => () => {
+      onItemClick?.(item);
+    },
+    [onItemClick],
+  );
+
   return (
     <div ref={ref} className={cn("flex items-center", className)} {...rest}>
       {before}
@@ -58,8 +73,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={discord}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(SOCIALS.DISCORD)}
         >
-          <SvgDiscord className="size-6" />
+          <SvgDiscord {...icon} />
           <span className="sr-only">Discord</span>
         </Link>
       )}
@@ -69,8 +85,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={twitter}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(SOCIALS.TWITTER)}
         >
-          <SvgTwitter className="size-6" />
+          <SvgTwitter {...icon} />
           <span className="sr-only">Twitter</span>
         </Link>
       )}
@@ -80,8 +97,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={github}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(SOCIALS.GITHUB)}
         >
-          <SvgGithub className="size-6" />
+          <SvgGithub {...icon} />
           <span className="sr-only">Github</span>
         </Link>
       )}
@@ -91,8 +109,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={telegram}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(SOCIALS.TELEGRAM)}
         >
-          <SvgTelegram className="size-6" />
+          <SvgTelegram {...icon} />
           <span className="sr-only">Telegram</span>
         </Link>
       )}
@@ -102,8 +121,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={linkedin}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(SOCIALS.LINKEDIN)}
         >
-          <SvgLinkedin className="size-6" />
+          <SvgLinkedin {...icon} />
           <span className="sr-only">Linked In</span>
         </Link>
       )}
@@ -113,8 +133,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={`mailto:${email}`}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(CONTACTS.EMAIL)}
         >
-          <SvgMail className="size-6" />
+          <SvgMail {...icon} />
           <span className="sr-only">Email: {email}</span>
         </Link>
       )}
@@ -124,8 +145,9 @@ export const Social: ForwardRefExoticComponent<SocialProps> = forwardRef<
           href={`tel:${email}`}
           target="_blank"
           className={cn("", item?.className)}
+          onClick={handleItemClick(CONTACTS.PHONE)}
         >
-          <PhoneIcon className="size-6" />
+          <PhoneIcon {...icon} />
           <span className="sr-only">Phone: {phone}</span>
         </Link>
       )}

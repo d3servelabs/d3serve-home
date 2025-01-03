@@ -94,6 +94,19 @@ body {
   syntax: "<angle>";
 }
 
+input:-webkit-autofill {
+  background-color: transparent !important;
+  color: inherit !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+}
+
 /*---------------------------------------------------*/
 /*	CURSOR
 /*---------------------------------------------------*/
@@ -214,4 +227,31 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.glob-rotation {
+  animation: rotation 60s infinite linear;
+}
+
+.glob-pulse {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
 }

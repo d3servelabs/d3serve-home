@@ -1,3 +1,5 @@
+"use client";
+
 import { useMediaQuery } from "react-responsive";
 
 import config from "../../tailwind.config";

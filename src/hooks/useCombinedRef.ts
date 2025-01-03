@@ -1,3 +1,5 @@
+"use client";
+
 import { ForwardedRef, useMemo, useRef } from "react";
 
 export const useCombinedRef = <T>(ref: ForwardedRef<T>) => {

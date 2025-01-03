@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import { ReactNode } from "react";
 import { WEBSITE } from "@/constants";
 import { cn } from "@/utils/cn";
@@ -11,9 +11,18 @@ import { Footer } from "@/components/Footer";
 
 import "./globals.css";
 
-const font = Roboto({
+const roboto_font = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
+  display: "swap",
+  variable: "--font-roboto",
+});
+
+const roboto_mono_font = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+  display: "swap",
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +37,13 @@ type Props = {
 export default function RootLayout({ children }: Readonly<Props>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={cn("min-h-screen w-full antialiased", font.className)}>
+      <body
+        className={cn(
+          "min-h-screen w-full antialiased font-roboto",
+          roboto_font.variable,
+          roboto_mono_font.variable,
+        )}
+      >
         <Contexts>
           <Preloader />
           <Providers>

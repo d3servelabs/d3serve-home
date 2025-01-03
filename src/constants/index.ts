@@ -18,9 +18,21 @@ export const CONTACTS = {
 };
 
 export const PRODUCTS = {
-  NAMEFI: "https://www.namefi.io",
-  D3CARDS: "https://d3.cards",
-  D3CAF: "https://github.com/d3servelabs/d3caf",
+  NAMEFI: {
+    title: "Namefi",
+    description: "Namefi",
+    url: "https://www.namefi.io",
+  },
+  D3CARDS: {
+    title: "D3.cards",
+    description: "D3.cards",
+    url: "https://d3.cards",
+  },
+  D3CAF: {
+    title: "D3CAF",
+    description: "D3CAF",
+    url: "https://d3caf.com",
+  },
 };
 
 export const WEBSITE = {
@@ -38,3 +50,5 @@ export const WEBSITE = {
 
 export const HAS_CURSOR = false;
 export const HAS_TOPPER = false;
+
+export * from "./events";

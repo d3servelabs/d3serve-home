@@ -5,16 +5,22 @@ import {
   forwardRef,
   ForwardRefExoticComponent,
   ForwardedRef,
+  useCallback,
 } from "react";
 import { cn } from "@/utils/cn";
 import { Heading } from "@/components/Heading";
 import Link from "next/link";
 import SvgArrowRight from "@/components/icons/icons/ArrowRight";
-import SvgNamefi from "@/components/icons/products/Namefi";
+import SvgNamefi2 from "@/components/icons/products/Namefi2";
 import SvgD3Cards from "@/components/icons/products/D3Cards";
 import SvgD3Caf from "@/components/icons/products/D3Caf";
-import { BackgroundGradient } from "@/components/BackgroundGradient";
-import { PRODUCTS } from "@/constants";
+import { EVENTS, PRODUCTS } from "@/constants";
+import { Noise } from "@/components/Noise";
+import SvgProduct1GradientLeft from "@/components/icons/gradients/Product1GradientLeft";
+import SvgProduct1GradientRight from "@/components/icons/gradients/Product1GradientRight";
+import SvgProduct2GradientLeft from "@/components/icons/gradients/Product2GradientLeft";
+import SvgProduct3GradientRight from "@/components/icons/gradients/Product3GradientRight";
+import { useTrackers } from "@/contexts/trackers";
 
 export type ProductsProps = HTMLAttributes<HTMLDivElement> & {
   ref?: ForwardedRef<HTMLDivElement>;
@@ -27,6 +33,17 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
   { className, ...rest }: ProductsProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
+  const { trackers } = useTrackers();
+
+  const handleItemClick = useCallback(
+    (item: (typeof PRODUCTS)[keyof typeof PRODUCTS]) => async () => {
+      await trackers(EVENTS.PRODUCTS_ITEM_CLICK, {
+        item: item.title,
+      });
+    },
+    [trackers],
+  );
+
   return (
     <div
       ref={ref}
@@ -39,27 +56,41 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
       <Heading className="text-6xl font-bold" level={2}>
         Explore Our Products
       </Heading>
-      <div className="flex w-full items-center justify-center text-center text-2xl text-white/70">
+      <div className="flex w-full items-center justify-center text-center text-xl leading-9 text-white/60">
         Discover cutting-edge tools and solutions to trade, manage, and transfer
         your onchain domains seamlessly.
       </div>
 
       <div className="mt-8 flex w-full flex-col gap-8">
-        <BackgroundGradient className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 px-12 py-8 text-center">
+        <div
+          style={{
+            boxShadow:
+              "0px 2347px 657px 0px rgba(0, 0, 0, 0.00), 0px 1502px 601px 0px rgba(0, 0, 0, 0.01), 0px 845px 507px 0px rgba(0, 0, 0, 0.05), 0px 375px 375px 0px rgba(0, 0, 0, 0.09), 0px 94px 207px 0px rgba(0, 0, 0, 0.10)",
+          }}
+          className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-12 py-8 text-center backdrop-blur-[100px]"
+        >
+          <div className="pointer-events-none absolute inset-0 size-full">
+            <Noise className="absolute inset-0 size-full" />
+            <SvgProduct1GradientLeft className="absolute -left-4 h-full" />
+            <SvgProduct1GradientRight className="absolute -right-4 h-full" />
+          </div>
+
           <Link
-            href={PRODUCTS.NAMEFI}
+            onClick={handleItemClick(PRODUCTS.NAMEFI)}
+            href={PRODUCTS.NAMEFI.url}
             target="_blank"
             className="relative flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105"
           >
-            <SvgNamefi className="size-20" />
-            Namefi
+            <SvgNamefi2 className="size-20 overflow-hidden rounded-2xl" />
+            {PRODUCTS.NAMEFI.title}
           </Link>
-          <div className="relative text-2xl text-white/50">
-            Tokenize internet domains for trading, DeFi and Future Internet
+          <div className="relative text-xl text-white/60">
+            Tokenize internet domains for tratrding, DeFi and Future Internet
           </div>
           <div className="relative">
             <Link
-              href={PRODUCTS.NAMEFI}
+              onClick={handleItemClick(PRODUCTS.NAMEFI)}
+              href={PRODUCTS.NAMEFI.url}
               target="_blank"
               className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
             >
@@ -67,35 +98,79 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
               <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />
             </Link>
           </div>
-        </BackgroundGradient>
+        </div>
 
         <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
-          <BackgroundGradient className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 px-12 py-8 text-center">
+          <div
+            style={{
+              boxShadow:
+                "0px 2347px 657px 0px rgba(0, 0, 0, 0.00), 0px 1502px 601px 0px rgba(0, 0, 0, 0.01), 0px 845px 507px 0px rgba(0, 0, 0, 0.05), 0px 375px 375px 0px rgba(0, 0, 0, 0.09), 0px 94px 207px 0px rgba(0, 0, 0, 0.10)",
+            }}
+            className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-12 py-8 text-center backdrop-blur-[100px]"
+          >
+            <div className="pointer-events-none absolute inset-0 size-full">
+              <Noise className="absolute inset-0 size-full" />
+              <SvgProduct2GradientLeft className="absolute -left-4 top-0 h-full" />
+            </div>
             <Link
-              href={PRODUCTS.D3CARDS}
+              onClick={handleItemClick(PRODUCTS.D3CARDS)}
+              href={PRODUCTS.D3CARDS.url}
               target="_blank"
               className="relative  flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105"
             >
-              <SvgD3Cards className="size-20" />
-              D3.cards
+              <SvgD3Cards className="size-20 overflow-hidden rounded-2xl" />
+              {PRODUCTS.D3CARDS.title}
             </Link>
-            <div className="relative text-2xl text-white/50">
-              Tokenize internet domains for trading, DeFi and Future Internet
+            <div className="relative text-xl text-white/60">
+              Web3 digital business card with token gated privacy and control
             </div>
-          </BackgroundGradient>
-          <BackgroundGradient className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 px-12 py-8 text-center">
+            <div className="relative">
+              <Link
+                onClick={handleItemClick(PRODUCTS.D3CARDS)}
+                href={PRODUCTS.D3CARDS.url}
+                target="_blank"
+                className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
+              >
+                Learn more
+                <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+          <div
+            style={{
+              boxShadow:
+                "0px 2347px 657px 0px rgba(0, 0, 0, 0.00), 0px 1502px 601px 0px rgba(0, 0, 0, 0.01), 0px 845px 507px 0px rgba(0, 0, 0, 0.05), 0px 375px 375px 0px rgba(0, 0, 0, 0.09), 0px 94px 207px 0px rgba(0, 0, 0, 0.10)",
+            }}
+            className="flex w-full flex-col items-center justify-center gap-8 overflow-hidden rounded-3xl border border-white/20 bg-[#1C2024] px-12 py-8 text-center backdrop-blur-[100px]"
+          >
+            <div className="pointer-events-none absolute inset-0 size-full">
+              <Noise className="absolute inset-0 size-full" />
+              <SvgProduct3GradientRight className="absolute -right-4 bottom-0 h-full" />
+            </div>
             <Link
-              href={PRODUCTS.D3CAF}
+              onClick={handleItemClick(PRODUCTS.D3CAF)}
+              href={PRODUCTS.D3CAF.url}
               target="_blank"
               className="relative flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105"
             >
-              <SvgD3Caf className="size-20" />
-              D3CAF
+              <SvgD3Caf className="size-20 overflow-hidden rounded-2xl" />
+              {PRODUCTS.D3CAF.title}
             </Link>
-            <div className="relative text-2xl text-white/50">
-              Tokenize internet domains for trading, DeFi and Future Internet
+            <div className="relative text-xl text-white/60">
+              Decentralized mining service for mining vanity contract addreses
             </div>
-          </BackgroundGradient>
+            <div className="relative">
+              <Link
+                onClick={handleItemClick(PRODUCTS.D3CAF)}
+                href={PRODUCTS.D3CAF.url}
+                target="_blank"
+                className="group text-sm text-white/40 transition-all duration-150 hover:scale-105 active:scale-[99%]"
+              >
+                Learn more
+                <SvgArrowRight className="ml-2 inline-flex size-3 transition-all duration-150 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

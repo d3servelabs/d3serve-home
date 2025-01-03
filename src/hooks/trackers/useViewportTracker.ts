@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useCallback } from "react";
 
 export const useViewportTracker = (callback: (visible: boolean) => void) => {

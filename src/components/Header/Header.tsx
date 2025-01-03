@@ -5,12 +5,15 @@ import {
   forwardRef,
   ForwardRefExoticComponent,
   ForwardedRef,
+  useCallback,
 } from "react";
 import { cn } from "@/utils/cn";
 import { Logotype } from "@/components/Logotype";
 import { Social } from "@/components/Social";
 import { Search } from "@/components/Search";
-import { WEBSITE } from "@/constants";
+import { EVENTS, WEBSITE } from "@/constants";
+import { useTrackers } from "@/contexts/trackers";
+import { CONTACTS, SOCIALS } from "@/types";
 
 export type HeaderProps = HTMLAttributes<HTMLDivElement> & {
   ref?: ForwardedRef<HTMLDivElement>;
@@ -23,6 +26,23 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
   { className, ...rest }: HeaderProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
+  const { trackers } = useTrackers();
+
+  const handleLogotypeClick = useCallback(async () => {
+    await trackers(EVENTS.LOGOTYPE_CLICK);
+  }, [trackers]);
+
+  const handleSocialClick = useCallback(
+    async (item: SOCIALS | CONTACTS) => {
+      await trackers(`${item}_CLICK`);
+    },
+    [trackers],
+  );
+
+  const handleSearchClick = useCallback(async () => {
+    await trackers(EVENTS.SEARCH_CLICK);
+  }, [trackers]);
+
   return (
     <header
       ref={ref}
@@ -33,12 +53,16 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
       {...rest}
     >
       <div className="fixed z-10 flex h-20 max-h-20 min-h-20 w-full items-center justify-between gap-3 px-8 py-4 backdrop-blur">
-        <Logotype />
+        <Logotype onClick={handleLogotypeClick} />
 
         <Social
+          onItemClick={handleSocialClick}
           className="hidden items-center gap-1 md:flex"
           before={
-            <Search className="p-4 text-white/50 transition-all duration-150 hover:scale-[101%] hover:text-white active:scale-[99%]" />
+            <Search
+              onClick={handleSearchClick}
+              className="p-4 text-white/50 transition-all duration-150 hover:scale-[101%] hover:text-white active:scale-[99%]"
+            />
           }
           discord={WEBSITE.socials.discord}
           twitter={WEBSITE.socials.twitter}
@@ -47,6 +71,7 @@ export const Header: ForwardRefExoticComponent<HeaderProps> = forwardRef<
             className:
               "text-white/50 p-4 duration-150 transition-all hover:text-white hover:scale-[101%] active:scale-[99%]",
           }}
+          icon={{ className: "size-6" }}
         />
       </div>
     </header>

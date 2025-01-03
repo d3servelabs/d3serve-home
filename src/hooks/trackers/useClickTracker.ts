@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useCallback, useRef, useMemo } from "react";
 
 const getElementPath = (element: HTMLElement): string[] => {

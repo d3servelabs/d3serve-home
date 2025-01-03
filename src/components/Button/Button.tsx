@@ -13,7 +13,7 @@ import { Loader2Icon } from "lucide-react";
 import type { UrlObject } from "url";
 
 const variants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap text-nowrap rounded-full text-center leading-none tracking-widest transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
+  "inline-flex items-center justify-center whitespace-nowrap text-nowrap rounded-full text-center font-roboto-mono leading-none tracking-widest transition-all duration-150 hover:scale-[101%] active:scale-[99%] disabled:cursor-not-allowed disabled:opacity-90 disabled:hover:scale-100 disabled:active:scale-100",
   {
     variants: {
       variant: {
@@ -24,15 +24,15 @@ const variants = cva(
         tertiary:
           "border border-white text-white hover:bg-white hover:text-black disabled:hover:bg-transparent disabled:hover:text-white",
         quaternary:
-          "border border-white/50 bg-white/5 shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)] hover:shadow-[inset_0px_0px_25px_0px_rgba(255,255,255,0.75)] disabled:hover:shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.5)]",
+          "border border-white/50 bg-white/5 shadow-[inset_0px_0px_30px_0px_rgba(255,255,255,0.8)] hover:shadow-[inset_0px_0px_35px_0px_rgba(255,255,255,0.85)] disabled:hover:shadow-[inset_0px_0px_30px_0px_rgba(255,255,255,0.8)]",
         destructive:
           "border border-destructive/50 text-destructive hover:bg-destructive/10 hover:text-destructive disabled:hover:bg-transparent disabled:hover:text-destructive",
         link: "hover:underline",
       },
       size: {
-        sm: "h-10 px-4 py-2",
-        md: "h-12 px-8 py-4 text-xl",
-        lg: "h-16 px-8 py-6 text-xl",
+        sm: "h-[42px] px-4 py-2",
+        md: "h-[46px] px-8 py-4 text-xl",
+        lg: "h-[60px] px-8 py-6 text-xl",
       },
       disabled: {
         true: "cursor-not-allowed opacity-90",

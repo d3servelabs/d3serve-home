@@ -20,7 +20,7 @@ export const Container: ForwardRefExoticComponent<ContainerProps> = forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("max-w-[1600px] mx-auto w-full", className)}
+      className={cn("max-w-[1600px] relative mx-auto w-full", className)}
       {...rest}
     >
       {children}

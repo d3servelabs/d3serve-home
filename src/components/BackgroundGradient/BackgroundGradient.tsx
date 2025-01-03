@@ -7,6 +7,7 @@ import {
   ForwardedRef,
 } from "react";
 import { cn } from "@/utils/cn";
+import { Noise } from "@/components/Noise";
 export type BackgroundGradientProps = HTMLAttributes<HTMLDivElement> & {
   ref?: ForwardedRef<HTMLDivElement>;
 };
@@ -19,16 +20,7 @@ export const BackgroundGradient: ForwardRefExoticComponent<BackgroundGradientPro
     ) {
       return (
         <div ref={ref} className={cn("relative", className)} {...rest}>
-          <div className="absolute inset-0 bg-black/20">
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                opacity: 1,
-                background: `url("/noise.png") lightgray 0% 0% / 100px 100px repeat`,
-                mixBlendMode: "soft-light",
-              }}
-            ></div>
-          </div>
+          <Noise className="pointer-events-none absolute inset-0 size-full" />
           {children}
         </div>
       );

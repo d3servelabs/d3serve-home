@@ -1,3 +1,5 @@
+"use client";
+
 import { useBreakPoint } from "./useBreakPoint";
 
 type Type = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";

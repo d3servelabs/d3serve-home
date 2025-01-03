@@ -9,12 +9,15 @@ import {
   ReactElement,
   SVGProps,
   useMemo,
+  useCallback,
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/Button";
 import * as companies from "@/components/icons/companies";
+import { useTrackers } from "@/contexts/trackers";
+import { EVENTS } from "@/constants";
 
 enum Tag {
   ALL = "All",
@@ -23,12 +26,14 @@ enum Tag {
   PARTNERS = "Partners",
 }
 
-const items: {
+type Item = {
   tags: Tag[];
   title?: string;
   description?: string;
   icon: (props: SVGProps<SVGSVGElement>) => ReactElement;
-}[] = [
+};
+
+const items: Item[] = [
   {
     tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
     icon: companies.Company1,
@@ -106,7 +111,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
   { className, ...rest }: CompaniesProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const [buttons] = useState<Tag[]>([
+  const [tags] = useState<Tag[]>([
     Tag.ALL,
     Tag.INVESTORS,
     Tag.GRANTORS,
@@ -122,6 +127,27 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
     [active],
   );
 
+  const { trackers } = useTrackers();
+
+  const handleActive = useCallback(
+    (tag: Tag) => async () => {
+      setActive(tag);
+
+      await trackers(EVENTS.COMPANIES_FILTER_CLICK, { tag });
+    },
+    [trackers],
+  );
+
+  const handleItemClick = useCallback(
+    (item: Item) => async () => {
+      await trackers(EVENTS.COMPANIES_ITEM_CLICK, {
+        title: item.title,
+        description: item.description,
+      });
+    },
+    [trackers],
+  );
+
   return (
     <div
       ref={ref}
@@ -134,25 +160,25 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
       <Heading className="text-6xl font-bold" level={2}>
         Backed by the best
       </Heading>
-      <div className="mt-12 flex w-full items-center justify-center text-center text-2xl text-white/70">
+      <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-xl leading-9 text-white/60">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
       <div className="flex flex-wrap items-center justify-center gap-2">
-        {buttons.map((button) => (
+        {tags.map((tag) => (
           <Button
-            key={button}
+            key={tag}
             size="sm"
-            variant={button === active ? "primary" : "secondary"}
-            className="text-lg"
-            onClick={() => setActive(button)}
+            variant={tag === active ? "primary" : "secondary"}
+            className={cn("px-8 text-lg", tag === active ? "" : "bg-white/25")}
+            onClick={handleActive(tag)}
           >
-            {button}
+            {tag}
           </Button>
         ))}
       </div>
       <motion.div
         layout
-        className="mt-16 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         <AnimatePresence>
           {filters.map((item, index) => {
@@ -162,19 +188,20 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
               .trim();
 
             return (
-              <motion.div
+              <motion.button
+                onClick={handleItemClick(item)}
                 layout
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 title={overview}
-                className="flex w-full items-center justify-center p-6"
+                className="flex w-full items-center justify-center p-4"
                 key={index}
               >
                 <item.icon className="transition-all duration-150 ease-in-out hover:scale-105" />
                 {overview && <span className="sr-only">{overview}</span>}
-              </motion.div>
+              </motion.button>
             );
           })}
         </AnimatePresence>

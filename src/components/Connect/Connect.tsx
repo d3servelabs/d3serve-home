@@ -5,11 +5,14 @@ import {
   forwardRef,
   ForwardRefExoticComponent,
   ForwardedRef,
+  useCallback,
 } from "react";
 import { cn } from "@/utils/cn";
 import { Heading } from "@/components/Heading";
 import { Social } from "@/components/Social";
 import { WEBSITE } from "@/constants";
+import { useTrackers } from "@/contexts/trackers";
+import { CONTACTS, SOCIALS } from "@/types";
 
 export type ConnectProps = HTMLAttributes<HTMLDivElement> & {
   ref?: ForwardedRef<HTMLDivElement>;
@@ -22,6 +25,15 @@ export const Connect: ForwardRefExoticComponent<ConnectProps> = forwardRef<
   { className, ...rest }: ConnectProps,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
+  const { trackers } = useTrackers();
+
+  const handleSocialClick = useCallback(
+    async (item: SOCIALS | CONTACTS) => {
+      await trackers(`${item}_CLICK`);
+    },
+    [trackers],
+  );
+
   return (
     <div
       ref={ref}
@@ -31,11 +43,12 @@ export const Connect: ForwardRefExoticComponent<ConnectProps> = forwardRef<
       <Heading level={3} className="text-4xl font-bold text-white">
         Stay in touch
       </Heading>
-      <div className="flex w-full text-2xl text-white/70">
+      <div className="flex w-full text-xl leading-9 text-white/60">
         Follow us on social media and stay updated with the latest news,
         features, and insights from the Namefi ecosystem.
       </div>
       <Social
+        onItemClick={handleSocialClick}
         className="flex items-center gap-4"
         discord={WEBSITE.socials.discord}
         twitter={WEBSITE.socials.twitter}
@@ -44,8 +57,9 @@ export const Connect: ForwardRefExoticComponent<ConnectProps> = forwardRef<
         linkedin={WEBSITE.socials.linkedin}
         item={{
           className:
-            "text-white/50 bg-white/10 rounded-full size-12 flex items-center text-center justify-center duration-150 transition-all hover:text-white hover:scale-[101%] active:scale-[99%]",
+            "text-white/50 bg-white/5 hover:bg-white hover:text-black rounded-full size-12 flex items-center text-center justify-center duration-150 transition-all hover:scale-[101%] active:scale-[99%]",
         }}
+        icon={{ className: "size-5" }}
       />
     </div>
   );

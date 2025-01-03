@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useCallback, useRef } from "react";
 
 interface Options {
@@ -20,16 +22,16 @@ export const useScrollTracker = (
     }
 
     debouncer.current = setTimeout(() => {
-      if (Math.abs(window.pageYOffset - position.current) > threshold) {
+      if (Math.abs(window.scrollY - position.current) > threshold) {
         callback({
           percentage: Math.round(
-            (window.pageYOffset /
+            (window.scrollY /
               (document.documentElement.scrollHeight - window.innerHeight)) *
               100,
           ),
-          position: window.pageYOffset,
+          position: window.scrollY,
         });
-        position.current = window.pageYOffset;
+        position.current = window.scrollY;
       }
     }, debounce);
   }, [callback, threshold, debounce]);
