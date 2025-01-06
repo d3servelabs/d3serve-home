@@ -18,11 +18,13 @@ const variants = cva(
     variants: {
       variant: {
         primary:
-          "border border-white bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black",
+          // "border border-white bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black",
+          "border border-white bg-white text-black hover:bg-white hover:text-black disabled:hover:bg-white disabled:hover:text-black",
         secondary:
           "border border-transparent bg-white/10 text-white hover:border-white hover:bg-white hover:text-black disabled:hover:border-transparent disabled:hover:bg-white/10 disabled:hover:text-white",
         tertiary:
-          "border border-white text-white hover:bg-white hover:text-black disabled:hover:bg-transparent disabled:hover:text-white",
+          // "border border-white text-white hover:bg-white hover:text-black disabled:hover:bg-transparent disabled:hover:text-white",
+          "border border-white text-white hover:shadow-[inset_0px_0px_20px_0px_rgba(255,255,255,0.30)] disabled:hover:shadow-none",
         quaternary:
           "border border-white/50 bg-white/5 shadow-[inset_0px_0px_30px_0px_rgba(255,255,255,0.8)] hover:shadow-[inset_0px_0px_35px_0px_rgba(255,255,255,0.85)] disabled:hover:shadow-[inset_0px_0px_30px_0px_rgba(255,255,255,0.8)]",
         destructive:
