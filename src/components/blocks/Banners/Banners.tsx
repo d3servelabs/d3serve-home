@@ -73,21 +73,24 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           ]}
           className="text-[40px] font-bold leading-tight md:text-[80px]"
         >
-          <Heading level={1}>A Pioneer of Digital Trust</Heading>
+          <Heading level={1}>
+            A Pioneer of <span className="block md:inline">Digital</span>{" "}
+            <span className="block md:inline">Trust</span>{" "}
+          </Heading>
         </TextGradient>
       </div>
-      <div className="flex w-full items-center justify-center text-center text-base leading-9 text-white/60 md:text-xl">
+      <div className="flex w-full items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         Building digital trust with blockchain powered software and services.
         Maker of Namefi.io and more
       </div>
-      <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-8 text-center md:mt-16">
+      <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-4 text-center md:mt-16 md:gap-8">
         <Button
           onClick={handleReadManifesto}
           href="https://hackmd.io/@d3servelabs/vision"
           target="_blank"
           variant="primary"
           size="lg"
-          className="w-60 bg-white/70 md:w-auto"
+          className="h-[50px] w-60 bg-white/70 text-lg md:h-[60px] md:w-auto md:text-xl"
         >
           Read manifesto
           <SvgArrowUpRight className="ml-2 inline-flex size-6" />
@@ -96,7 +99,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           onClick={handlePartnerWithUs}
           variant="tertiary"
           size="lg"
-          className="w-60 md:w-auto"
+          className="h-[50px] w-60 text-lg md:h-[60px] md:w-auto md:text-xl"
         >
           Partner with us
         </Button>

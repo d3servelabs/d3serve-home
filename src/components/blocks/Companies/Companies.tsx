@@ -35,63 +35,63 @@ type Item = {
 
 const items: Item[] = [
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.INVESTORS],
     icon: companies.Company1,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.GRANTORS],
     icon: companies.Company2,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.PARTNERS],
     icon: companies.Company3,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.INVESTORS],
     icon: companies.Company4,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.GRANTORS],
     icon: companies.Company5,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.PARTNERS],
     icon: companies.Company6,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.INVESTORS],
     icon: companies.Company7,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.GRANTORS],
     icon: companies.Company8,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.PARTNERS],
     icon: companies.Company9,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.INVESTORS],
     icon: companies.Company10,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.GRANTORS],
     icon: companies.Company11,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.PARTNERS],
     icon: companies.Company12,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.INVESTORS],
     icon: companies.Company13,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.GRANTORS],
     icon: companies.Company14,
   },
   {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
+    tags: [Tag.PARTNERS],
     icon: companies.Company15,
   },
   {
@@ -166,7 +166,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
       <div className="mt-4 flex w-full max-w-7xl items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         D3Serve Labs has been trusted by leading institutions and companies.
       </div>
-      <div className="hide-scrollbar w-full max-w-full overflow-x-auto overflow-y-hidden">
+      <div className="hide-scrollbar w-full max-w-full overflow-x-auto overflow-y-hidden text-center">
         <div className="mx-auto inline-flex flex-nowrap items-center gap-2">
           {tags.map((tag) => (
             <Button
@@ -174,7 +174,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
               size="sm"
               variant={tag === active ? "primary" : "secondary"}
               className={cn(
-                "px-8 text-lg",
+                "px-8 text-base md:text-lg",
                 tag === active ? "" : "bg-white/25",
               )}
               onClick={handleActive(tag)}

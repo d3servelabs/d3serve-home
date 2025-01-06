@@ -85,12 +85,12 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
             onClick={handleItemClick(PRODUCTS.NAMEFI)}
             href={PRODUCTS.NAMEFI.url}
             target="_blank"
-            className="relative flex w-full items-center justify-center gap-2 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105 md:gap-4"
+            className="relative flex w-full items-center justify-center gap-4 text-center text-2xl font-bold text-white transition-all duration-150 hover:scale-105 md:text-4xl"
           >
-            <SvgNamefi2 className="size-20 overflow-hidden rounded-2xl" />
+            <SvgNamefi2 className="size-14 overflow-hidden rounded-lg md:size-20 md:rounded-2xl" />
             {PRODUCTS.NAMEFI.title}
           </Link>
-          <div className="relative text-xl text-white/60">
+          <div className="relative leading-7 text-white/60 md:text-xl md:leading-9">
             Tokenize internet domains for tratrding, DeFi and Future Internet
           </div>
           <div className="relative">
@@ -125,12 +125,12 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
               onClick={handleItemClick(PRODUCTS.D3CARDS)}
               href={PRODUCTS.D3CARDS.url}
               target="_blank"
-              className="relative  flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105"
+              className="relative flex w-full items-center justify-center gap-4 text-center text-2xl font-bold text-white transition-all duration-150 hover:scale-105 md:text-4xl"
             >
-              <SvgD3Cards className="size-20 overflow-hidden rounded-2xl" />
+              <SvgD3Cards className="size-14 overflow-hidden rounded-lg md:size-20 md:rounded-2xl" />
               {PRODUCTS.D3CARDS.title}
             </Link>
-            <div className="relative text-xl text-white/60">
+            <div className="relative leading-7 text-white/60 md:text-xl md:leading-9">
               Web3 digital business card with token gated privacy and control
             </div>
             <div className="relative">
@@ -163,12 +163,12 @@ export const Products: ForwardRefExoticComponent<ProductsProps> = forwardRef<
               onClick={handleItemClick(PRODUCTS.D3CAF)}
               href={PRODUCTS.D3CAF.url}
               target="_blank"
-              className="relative flex w-full items-center justify-center gap-4 text-center text-4xl font-bold text-white transition-all duration-150 hover:scale-105"
+              className="relative flex w-full items-center justify-center gap-4 text-center text-2xl font-bold text-white transition-all duration-150 hover:scale-105 md:text-4xl"
             >
-              <SvgD3Caf className="size-20 overflow-hidden rounded-2xl" />
+              <SvgD3Caf className="size-14 overflow-hidden rounded-lg md:size-20 md:rounded-2xl" />
               {PRODUCTS.D3CAF.title}
             </Link>
-            <div className="relative text-xl text-white/60">
+            <div className="relative leading-7 text-white/60 md:text-xl md:leading-9">
               Decentralized mining service for mining vanity contract addreses
             </div>
             <div className="relative">
