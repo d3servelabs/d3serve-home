@@ -56,4 +56,5 @@ export const WEBSITE = {
 export const HAS_CURSOR = false;
 export const HAS_TOPPER = false;
 
+export * from "./brands";
 export * from "./events";

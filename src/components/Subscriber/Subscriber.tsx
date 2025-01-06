@@ -62,6 +62,13 @@ export const Subscriber: ForwardRefExoticComponent<SubscriberProps> =
             response: `${response.statusText} (${response.status})`,
           },
         );
+
+        if (response.ok) {
+          window.open(
+            `https://tally.so/r/w5xl1M?email=${data.email}`,
+            "_blank",
+          );
+        }
       },
       [trackers],
     );

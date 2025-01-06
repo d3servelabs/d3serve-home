@@ -52,6 +52,8 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
     >
       <div className="flex w-full items-center justify-center">
         <Button
+          href="https://www.icann.org"
+          target="_blank"
           onClick={handleICANNAccreditation}
           variant="quaternary"
           size="sm"
@@ -96,6 +98,8 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           <SvgArrowUpRight className="ml-2 inline-flex size-6" />
         </Button>
         <Button
+          href="mailto:contact@d3serve.xyz"
+          target="_blank"
           onClick={handlePartnerWithUs}
           variant="tertiary"
           size="lg"

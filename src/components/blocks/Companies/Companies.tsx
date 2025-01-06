@@ -6,8 +6,6 @@ import {
   ForwardRefExoticComponent,
   ForwardedRef,
   useState,
-  ReactElement,
-  SVGProps,
   useMemo,
   useCallback,
 } from "react";
@@ -15,9 +13,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/Button";
-import * as companies from "@/components/icons/companies";
 import { useTrackers } from "@/contexts/trackers";
-import { EVENTS } from "@/constants";
+import { BRANDS, EVENTS } from "@/constants";
+import Image from "next/image";
 
 enum Tag {
   ALL = "All",
@@ -28,76 +26,30 @@ enum Tag {
 
 type Item = {
   tags: Tag[];
-  title?: string;
-  description?: string;
-  icon: (props: SVGProps<SVGSVGElement>) => ReactElement;
+  name: string;
+  images: string[];
+  link: string;
 };
 
 const items: Item[] = [
-  {
+  ...BRANDS.Investors.map((brand) => ({
     tags: [Tag.INVESTORS],
-    icon: companies.Company1,
-  },
-  {
+    name: brand.name,
+    images: brand.images,
+    link: brand.link,
+  })),
+  ...BRANDS.Grantors.map((brand) => ({
     tags: [Tag.GRANTORS],
-    icon: companies.Company2,
-  },
-  {
+    name: brand.name,
+    images: brand.images,
+    link: brand.link,
+  })),
+  ...BRANDS.Partners.map((brand) => ({
     tags: [Tag.PARTNERS],
-    icon: companies.Company3,
-  },
-  {
-    tags: [Tag.INVESTORS],
-    icon: companies.Company4,
-  },
-  {
-    tags: [Tag.GRANTORS],
-    icon: companies.Company5,
-  },
-  {
-    tags: [Tag.PARTNERS],
-    icon: companies.Company6,
-  },
-  {
-    tags: [Tag.INVESTORS],
-    icon: companies.Company7,
-  },
-  {
-    tags: [Tag.GRANTORS],
-    icon: companies.Company8,
-  },
-  {
-    tags: [Tag.PARTNERS],
-    icon: companies.Company9,
-  },
-  {
-    tags: [Tag.INVESTORS],
-    icon: companies.Company10,
-  },
-  {
-    tags: [Tag.GRANTORS],
-    icon: companies.Company11,
-  },
-  {
-    tags: [Tag.PARTNERS],
-    icon: companies.Company12,
-  },
-  {
-    tags: [Tag.INVESTORS],
-    icon: companies.Company13,
-  },
-  {
-    tags: [Tag.GRANTORS],
-    icon: companies.Company14,
-  },
-  {
-    tags: [Tag.PARTNERS],
-    icon: companies.Company15,
-  },
-  {
-    tags: [Tag.INVESTORS, Tag.GRANTORS, Tag.PARTNERS],
-    icon: companies.Company16,
-  },
+    name: brand.name,
+    images: brand.images,
+    link: brand.link,
+  })),
 ];
 
 export type CompaniesProps = HTMLAttributes<HTMLDivElement> & {
@@ -141,8 +93,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
   const handleItemClick = useCallback(
     (item: Item) => async () => {
       await trackers(EVENTS.COMPANIES_ITEM_CLICK, {
-        title: item.title,
-        description: item.description,
+        item: item.name,
       });
     },
     [trackers],
@@ -190,26 +141,29 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
       >
         <AnimatePresence>
           {filters.map((item, index) => {
-            const overview = [item.title, item.description]
-              .filter(Boolean)
-              .join(" - ")
-              .trim();
-
             return (
-              <motion.button
+              <motion.a
+                href={item.link}
+                target="_blank"
                 onClick={handleItemClick(item)}
                 layout
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                title={overview}
+                title={item.name}
                 className="flex w-full items-center justify-center p-2 md:p-4"
                 key={index}
               >
-                <item.icon className="scale-75 transition-all duration-150 ease-in-out hover:scale-105 md:scale-100" />
-                {overview && <span className="sr-only">{overview}</span>}
-              </motion.button>
+                <Image
+                  alt={item.name}
+                  width="180"
+                  height="48"
+                  src={item.images[0]}
+                  className="scale-75 grayscale transition-all duration-150 ease-in-out hover:scale-105 hover:grayscale-0 md:scale-100"
+                />
+                {item.name && <span className="sr-only">{item.name}</span>}
+              </motion.a>
             );
           })}
         </AnimatePresence>
