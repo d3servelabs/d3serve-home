@@ -7,4 +7,3 @@ TODO:
 5. "Partner with us" — when click on it what will happen?
 6. "Backed by the best" - need to know relations
 7. Subscribe - "what to do with email?"
-8.
