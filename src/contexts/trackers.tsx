@@ -16,6 +16,7 @@ import { useViewportTracker } from "@/hooks/trackers/useViewportTracker";
 import { BaseEvent, EventOptions } from "@amplitude/analytics-types";
 import { noop } from "@/utils/function";
 import { useAmplitudes } from "@/contexts/amplitudes";
+import _ from "lodash";
 
 export type TrackersProviderProps = {
   prefix?: string;
@@ -23,6 +24,7 @@ export type TrackersProviderProps = {
   hasConsole?: boolean;
   hasAmplitudes?: boolean;
   hasGoogleAnalytics?: boolean;
+  format?: "kebab" | "snake" | "camel" | "pascal" | "constant";
   children: ReactNode;
 };
 
@@ -44,12 +46,33 @@ export function TrackersProvider({
   hasConsole = true,
   hasAmplitudes = false,
   hasGoogleAnalytics = false,
+  format = "kebab",
   children,
 }: Readonly<TrackersProviderProps>) {
   const { tracker } = useAmplitudes();
 
   const naming = useCallback(
-    (name: string) => [prefix, name, suffix].filter(Boolean).join("_"),
+    (
+      name: string,
+      format?: "kebab" | "snake" | "camel" | "pascal" | "constant",
+    ) => {
+      const str = [prefix, name, suffix].filter(Boolean).join("_");
+
+      switch (format) {
+        case "kebab":
+          return _.kebabCase(str);
+        case "snake":
+          return _.snakeCase(str);
+        case "camel":
+          return _.camelCase(str);
+        case "pascal":
+          return _.upperFirst(_.camelCase(str));
+        case "constant":
+          return _.upperCase(_.snakeCase(str));
+        default:
+          return str;
+      }
+    },
     [prefix, suffix],
   );
 
@@ -60,9 +83,9 @@ export function TrackersProvider({
     ) => {
       if (hasConsole) console.log("useClickTracker", element, records);
 
-      if (hasAmplitudes) await tracker(naming("CLICK"), records);
+      if (hasAmplitudes) await tracker(naming("CLICK", format), records);
 
-      if (hasGoogleAnalytics) event(naming("CLICK"), records);
+      if (hasGoogleAnalytics) event(naming("CLICK", format), records);
     },
   );
 
@@ -73,19 +96,19 @@ export function TrackersProvider({
     ) => {
       if (hasConsole) console.log("useFormTracker", element, records);
 
-      if (hasAmplitudes) await tracker(naming("FORM"), records);
+      if (hasAmplitudes) await tracker(naming("FORM", format), records);
 
-      if (hasGoogleAnalytics) event(naming("FORM"), records);
+      if (hasGoogleAnalytics) event(naming("FORM", format), records);
     },
   );
 
   useViewportTracker(async (visible: boolean) => {
     if (hasConsole) console.log("useViewportTracker");
 
-    if (hasAmplitudes) await tracker(naming("VIEWPORT"), { visible });
+    if (hasAmplitudes) await tracker(naming("VIEWPORT", format), { visible });
 
     if (hasGoogleAnalytics)
-      event(naming("VIEWPORT"), {
+      event(naming("VIEWPORT", format), {
         visible,
       });
   });
@@ -93,9 +116,9 @@ export function TrackersProvider({
   useVitalsTracker(async (vitals: Record<string, Metric>) => {
     if (hasConsole) console.log("useVitalsTracker", vitals);
 
-    if (hasAmplitudes) await tracker(naming("VITALS"), vitals);
+    if (hasAmplitudes) await tracker(naming("VITALS", format), vitals);
 
-    if (hasGoogleAnalytics) event(naming("VITALS"), vitals);
+    if (hasGoogleAnalytics) event(naming("VITALS", format), vitals);
   });
 
   const value = useMemo(
@@ -110,17 +133,19 @@ export function TrackersProvider({
 
         return Promise.all([
           tracker(
-            typeof eventNames === "string" ? naming(eventNames) : eventNames,
+            typeof eventNames === "string"
+              ? naming(eventNames, format)
+              : eventNames,
             eventProperties,
             eventOptions,
           ),
           typeof eventNames === "string"
-            ? event(naming(eventNames), eventProperties)
+            ? event(naming(eventNames, format), eventProperties)
             : void 0,
         ]);
       },
     }),
-    [hasConsole, tracker],
+    [format, hasConsole, naming, tracker],
   );
 
   return (
