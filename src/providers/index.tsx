@@ -14,8 +14,10 @@ export const Providers = ({ children }: Readonly<Props>) => {
     <Suspense fallback={<Loading />}>
       <ProgressProvider>
         <ThemeProvider
+          forcedTheme="dark"
           attribute="class"
           defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
           storageKey="theme"
         >
