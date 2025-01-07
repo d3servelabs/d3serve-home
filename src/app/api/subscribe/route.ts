@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { mongoConnect, Subscriber } from "@/mongo";
+import { connector, Subscriber } from "@/mongo";
 
 function validateRequest<T>(
   schema: z.ZodType<T>,
@@ -26,12 +26,12 @@ const schema = z.object({
 type SchemaType = z.infer<typeof schema>;
 
 export const POST = validateRequest<SchemaType>(schema, async (data) => {
-  await mongoConnect();
-
-  await Subscriber.findOneAndUpdate(
-    { email: data.email },
-    { email: data.email },
-    { upsert: true, new: true },
+  await connector(() =>
+    Subscriber.findOneAndUpdate(
+      { email: data.email },
+      { email: data.email },
+      { upsert: true, new: true },
+    ),
   );
 
   return NextResponse.json(data);

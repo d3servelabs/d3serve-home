@@ -1,12 +1,8 @@
 import { Container } from "@/components/Container";
-import { mongoConnect, Subscriber } from "@/mongo";
+import { connector, Subscriber } from "@/mongo";
 
 export default async function Page() {
-  const connection = await mongoConnect();
-
-  const count = await Subscriber.countDocuments();
-
-  await connection.disconnect();
+  const count = await connector(() => Subscriber.countDocuments());
 
   return (
     <div className="flex w-full flex-1 flex-col gap-8 p-8">
