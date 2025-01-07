@@ -24,7 +24,7 @@ export const InteractionObserver: ForwardRefExoticComponent<InteractionObserverP
       const [interaction, setInteraction] = useState(false);
 
       useEffect(() => {
-        const handleInteraction = (event: Event) => {
+        const handle = (event: Event) => {
           setInteraction(true);
           onInteraction?.(event.type, event);
         };
@@ -32,12 +32,12 @@ export const InteractionObserver: ForwardRefExoticComponent<InteractionObserverP
         const types = ["click", "mousemove", "keydown", "scroll", "touchstart"];
 
         types.forEach((type) => {
-          window.addEventListener(type, handleInteraction);
+          window.addEventListener(type, handle);
         });
 
         return () => {
           types.forEach((type) => {
-            window.removeEventListener(type, handleInteraction);
+            window.removeEventListener(type, handle);
           });
         };
       }, [onInteraction]);
