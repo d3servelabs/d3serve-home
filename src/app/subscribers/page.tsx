@@ -10,7 +10,9 @@ export default async function Page() {
 
   return (
     <div className="flex w-full flex-1 flex-col gap-8 p-8">
-      <Container className="space-x-8 space-y-8">Subscribers {count}</Container>
+      <Container className="space-x-8 space-y-8">
+        Subscribers: {count}
+      </Container>
     </div>
   );
 }
