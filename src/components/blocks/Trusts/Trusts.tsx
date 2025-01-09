@@ -13,9 +13,9 @@ import { cn } from "@/utils/cn";
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/Button";
 import SvgArrowRight from "@/components/icons/icons/ArrowRight";
-import Image from "next/image";
 import { useTrackers } from "@/contexts/trackers";
 import { EVENTS } from "@/constants";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export type TrustsProps = HTMLAttributes<HTMLDivElement> & {
   ref?: ForwardedRef<HTMLDivElement>;
@@ -211,7 +211,7 @@ export const Trusts: ForwardRefExoticComponent<TrustsProps> = forwardRef<
       >
         {active.image && (
           <div className="flex w-full flex-col items-center justify-center p-2 md:p-4">
-            <Image
+            <ImageWithFallback
               src={active.image}
               alt={active.title}
               width={1024}

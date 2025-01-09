@@ -9,7 +9,7 @@ import {
 import { cn } from "@/utils/cn";
 import { Heading } from "@/components/Heading";
 import Globe from "../../../../public/globe.png";
-import Image from "next/image";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export type LabsProps = HTMLAttributes<HTMLDivElement> & {
   ref?: ForwardedRef<HTMLDivElement>;
@@ -43,7 +43,7 @@ export const Labs: ForwardRefExoticComponent<LabsProps> = forwardRef<
 
       <div className="relative mt-4 flex h-[133px] w-full items-start justify-center overflow-hidden md:mt-20 md:h-[448px]">
         <div className="glob-pulse w-full max-w-6xl">
-          <Image
+          <ImageWithFallback
             width={1448}
             height={1432}
             src={Globe}

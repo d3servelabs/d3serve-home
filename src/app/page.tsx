@@ -8,11 +8,21 @@ import { Connect } from "@/components/Connect";
 import { Subscribe } from "@/components/Subscribe";
 import { Noise } from "@/components/Noise";
 import SvgTrustGradient from "@/components/icons/gradients/TrustGradient";
+import SvgHeroDotsLeft from "@/components/icons/dots/HeroDotsLeft";
+import SvgHeroDotsRight from "@/components/icons/dots/HeroDotsRight";
 
 export default function Page() {
   return (
     <div className="flex w-full flex-col">
-      <div className="-mt-20 flex min-h-screen w-full items-center justify-center px-8 py-10 md:py-20">
+      <div className="relative -mt-20 flex min-h-screen w-full items-center justify-center overflow-hidden px-8 py-10 md:py-20">
+        <SvgHeroDotsLeft
+          width={496}
+          className="pointer-events-none absolute -left-36 top-1/2 hidden -translate-y-1/2 opacity-50 md:block md:opacity-75 lg:opacity-100"
+        />
+        <SvgHeroDotsRight
+          width={496}
+          className="pointer-events-none absolute -right-36 top-1/2 hidden -translate-y-1/2 opacity-50 md:block md:opacity-75 lg:opacity-100"
+        />
         <Container>
           <Banners />
         </Container>

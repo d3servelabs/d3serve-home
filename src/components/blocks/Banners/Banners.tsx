@@ -45,12 +45,12 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-col gap-8 w-full text-center items-center justify-center",
+        "flex flex-col gap-8 relative w-full text-center items-center justify-center",
         className,
       )}
       {...rest}
     >
-      <div className="flex w-full items-center justify-center">
+      <div className="relative flex w-full items-center justify-center">
         <Button
           href="https://www.icann.org"
           target="_blank"
@@ -63,7 +63,7 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           ICANN Accreditation
         </Button>
       </div>
-      <div className="mt-8 flex w-full items-center justify-center text-center font-roboto-mono">
+      <div className="relative mt-8 flex w-full items-center justify-center text-center font-roboto-mono">
         <TextGradient
           duration={5000}
           colors={[
@@ -81,11 +81,11 @@ export const Banners: ForwardRefExoticComponent<BannersProps> = forwardRef<
           </Heading>
         </TextGradient>
       </div>
-      <div className="flex w-full items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
+      <div className="relative flex w-full items-center justify-center text-center text-base leading-7 text-white/60 md:text-xl md:leading-9">
         Building digital trust with blockchain powered software and services.
         Maker of Namefi.io and more
       </div>
-      <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-4 text-center md:mt-16 md:gap-8">
+      <div className="relative mt-8 flex w-full flex-wrap items-center justify-center gap-4 text-center md:mt-16 md:gap-8">
         <Button
           onClick={handleReadManifesto}
           href="https://hackmd.io/@d3servelabs/vision"

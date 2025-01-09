@@ -15,7 +15,7 @@ import { Heading } from "@/components/Heading";
 import { Button } from "@/components/Button";
 import { useTrackers } from "@/contexts/trackers";
 import { BRANDS, EVENTS } from "@/constants";
-import Image from "next/image";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 enum Tag {
   ALL = "All",
@@ -155,7 +155,7 @@ export const Companies: ForwardRefExoticComponent<CompaniesProps> = forwardRef<
                 className="flex w-full items-center justify-center p-2 md:p-4"
                 key={index}
               >
-                <Image
+                <ImageWithFallback
                   alt={item.name}
                   width="180"
                   height="48"
