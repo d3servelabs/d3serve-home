@@ -6,6 +6,7 @@ import {
   ReactNode,
   useContext,
   useCallback,
+  useEffect,
 } from "react";
 import { Metric } from "web-vitals";
 import { event } from "nextjs-google-analytics";
@@ -17,6 +18,8 @@ import { BaseEvent, EventOptions } from "@amplitude/analytics-types";
 import { noop } from "@/utils/function";
 import { useAmplitudes } from "@/contexts/amplitudes";
 import _ from "lodash";
+import { useUsercentrics } from "@/hooks/useUsercentrics";
+import { UCUICMPEvent, UCUICMPEventType } from "@/types/UC_UI";
 
 export type TrackersProviderProps = {
   prefix?: string;
@@ -147,6 +150,16 @@ export function TrackersProvider({
     }),
     [format, hasConsole, naming, tracker],
   );
+
+  const usercentrics = useUsercentrics(
+    (name: UCUICMPEventType, event: UCUICMPEvent) => {
+      console.log(`Usercentrics event "${name}"`, event);
+    },
+  );
+
+  useEffect(() => {
+    console.log("Usercentrics variables", usercentrics);
+  }, [usercentrics]);
 
   return (
     <TrackersContext.Provider value={value}>

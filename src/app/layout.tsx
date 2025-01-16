@@ -8,7 +8,7 @@ import { Providers } from "@/providers";
 import { Contexts } from "@/contexts";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Cookiebot } from "@/components/Cookiebot";
+import { Usercentrics } from "@/components/Usercentrics";
 
 import "./globals.css";
 
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
                 <Header />
                 <div className="flex w-full flex-1 flex-col">{children}</div>
                 <Footer />
-                <Cookiebot settingsId="x6B2M3iJewRGJX" />
+                <Usercentrics settingsId="x6B2M3iJewRGJX" />
               </div>
             </Contexts>
           </Providers>
