@@ -150,6 +150,8 @@ export const useUsercentrics = (
       if (debug) console.log("UC_UI_INITIALIZED", event);
 
       setInitialized(true);
+      setInteracted(localStorage?.getItem("uc_user_interaction") === "true");
+      setAcceptAll(window.UC_UI?.areAllConsentsAccepted?.() ?? false);
     };
 
     const events = Object.values(UCUICMPEventType).reduce(
